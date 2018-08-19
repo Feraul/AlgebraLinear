@@ -1,0 +1,137 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{framed}
+\usepackage{booktabs}
+
+\usepackage{float}
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{graphicx}
+\graphicspath{{./Figuras/}}    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Federal de Pernambuco}
+\newcommand{\centro}{Centro Acadêmico do Agreste}
+\newcommand{\departamento}{Núcleo de Tecnologia}
+\newcommand{\curso}{Engenharia Civil}
+\newcommand{\professor}{Fernando R. L. Contreras}
+\newcommand{\disciplina}{Algebra Linear}
+%ATE AQUI !!!
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{0pt}
+	 	
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+		\curso
+		\par
+		\vspace{08pt}
+		\text{Segunda Chamada}\\
+		 \text{Primeira Prova - Algebra Linear}\\
+		\text{Prof. Fernando R. L. Contreras}	
+	\end{center}
+	
+	%\vspace{0.5pt}
+	
+	\begin{flushleft}
+		Aluno(a):
+	\end{flushleft}
+	
+\begin{itemize}
+\item[1.] Seja $T:P_{3}\longrightarrow P_{3} $ tal que $T(f)=f''$ para todo $f\in P_{3}$. Mostre que $T$ é transformação linear e determine uma base para $Ker(T)$.
+\end{itemize}
+\begin{itemize}
+\item[2.] Ache a transformação linear $T:R^{3}\longrightarrow R^{2}$ tal que $T(1,0,0)=(2,0)$, $T(0,1,0)=(1,1)$ e $T(0,0,1)=(0,-1)$.
+ \end{itemize}
+ \begin{itemize}
+\item [3.] Sejam $\beta=\{(1,0),(0,1)\}$, $\beta_{1}=\{(-1,1), (1,1)\}$ bases ordenadas de $R^{2}$. Ache a matriz de mudança de base: $[I]_{\beta}^{\beta_{1}}$.
+\end{itemize}
+\begin{itemize}
+\item[4.]São sub-espaços vetoriais de $C(I)$ os seguintes subconjuntos: $U=\left\lbrace f\in C(I): f(t)=f(-t), \forall t\in \mathbb{R}\right\rbrace $ e $V= \left\lbrace f\in C(I): f(t)=-f(-t),\forall t\in \mathbb{R}\right\rbrace $. Mostra que $C(I)=U\bigoplus V$.
+\end{itemize}
+\begin{itemize}
+	\item[Opcional]. Enuncie o Teorema de Núcleo e Imagem.
+	
+\end{itemize}
+
+  \vspace{12pt}
+  
+     \begin{center}
+     	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+     	\vspace{0pt}
+     	
+     	\universidade
+     	\par
+     	\centro
+     	\par
+     	\departamento
+     	\par
+     	\curso
+     	\par
+     	\vspace{08pt}
+     	\text{Segunda Chamada}\\ \text{Terceira Prova - Algebra Linear}\\
+     	\text{Prof. Fernando R. L. Contreras}	
+     \end{center}
+     
+     \begin{flushleft}
+     	Aluno(a):
+     \end{flushleft}
+ 
+ \begin{itemize}
+ 	\item[1.] Identificar a seguinte quádrica $3x^{2}+5y^{2}+3z^{2}-2xy+2xz-2yz-4x+6y-2z+2=0$ utilizando os conceitos álgebra linear.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[2.] Determinar a equação reduzida e esboce o gráfico da cônica representada pela equação: $7x^{2}+13y^{2}-6\sqrt{3}xy-16=0$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item [3.] Dê a solução geral do seguinte sistema de equações diferenciais
+ 	$\begin{cases}
+ 	\frac{dx}{dt}=y+z,\\
+ 	\frac{dy}{dt}=x+z,\\
+ 	\frac{dy}{dt}=x+y
+ 	\end{cases}$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[4.]  Se $A$ é uma forma bilinear simétrica e $Q$ a forma quadrática associada a ela mostre que $A(v,w)=\frac{1}{2}(Q(v+w)-Q(v)- Q(w))$.
+ 	
+ \end{itemize}
+\begin{itemize}
+	\item[Opcional.] Seja  $g:V\times V \longrightarrow \mathbb{R}$ uma forma bilinear. Demostrar que $g_{v}: V \longrightarrow \mathbb{R} $, definida por $g_{v}(u)=g(u,v)$ é uma forma linear.
+	
+\end{itemize}
+\end{document}
+

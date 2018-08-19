@@ -1,0 +1,129 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{framed}
+\usepackage{booktabs}
+
+\usepackage{float}
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{graphicx}
+\graphicspath{{./Figuras/}}    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Federal de Pernambuco}
+\newcommand{\centro}{Centro Acadêmico do Agreste}
+\newcommand{\departamento}{Núcleo de Tecnologia}
+\newcommand{\curso}{Engenharia Civil}
+\newcommand{\professor}{Fernando R. L. Contreras}
+\newcommand{\disciplina}{Algebra Linear}
+%ATE AQUI !!!
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{0pt}
+	 	
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+		\curso
+		\par
+		\vspace{08pt}
+		\text{Prova Final - Algebra Linear}\\
+		\text{Prof. Fernando R. L. Contreras}	
+	\end{center}
+	
+	%\vspace{0.5pt}
+	
+	\begin{flushleft}
+		Aluno(a):
+	\end{flushleft}
+	
+\begin{itemize}
+\item[1.]  São sub-espaços vetoriais de $C(I)$ os seguintes subconjuntos: $U=\left\lbrace f\in C(I): f(t)=f(-t), \forall t\in \mathbb{R}\right\rbrace $ e $V= \left\lbrace f\in C(I): f(t)=-f(-t),\forall t\in \mathbb{R}\right\rbrace $. Mostra que $C(I)=U\bigoplus V$.
+\end{itemize}
+\begin{itemize}
+\item[2.] Seja $T:\mathbb{R}^2\longrightarrow \mathbb{R}^2 $ uma transformação linear que dobra o comprimento do vetor $u=(2,1)$ e triplica o comprimento do vetor $v=(1,2)$, sem alterar as direções nem inverter os sentidos. Determinar $T(x,y)$. Qual é a matriz equivalente do operador $T$ na base $\left\lbrace u,v\right\rbrace$.
+ \end{itemize}
+ \begin{itemize}
+\item [3.] Verifique que o operador linear $F$ do $\mathbb{R}^{3}$ dado por $F(x,y,z)=(x+z,x-z,y)$ é um automorfismo. Determine $F^{-1}$.
+\end{itemize}
+\begin{itemize}
+\item[4.] Ortonormalizar a base $\beta=\left\lbrace (1,1,1),(1,-1,1),(-1,0,1)\right\rbrace $ do $\mathbb{R}^{3}$, pelo processo de Gram-Schmidt, utilizando o produto interno usual do  $\mathbb{R}^{3}$. 
+\end{itemize}
+
+	\flushbottom
+	\flushright
+     Êxitos...!!!
+  \vspace{12pt}
+  
+     \begin{center}
+     	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+     	\vspace{0pt}
+     	
+     	\universidade
+     	\par
+     	\centro
+     	\par
+     	\departamento
+     	\par
+     	\curso
+     	\par
+     	\vspace{08pt}
+     	\text{Prova Final - Algebra Linear}\\
+     	\text{Prof. Fernando R. L. Contreras}	
+     \end{center}
+     
+     \begin{flushleft}
+     	Aluno(a):
+     \end{flushleft}
+ 
+ \begin{itemize}
+ 	\item[1.]  São sub-espaços vetoriais de $C(I)$ os seguintes subconjuntos: $U=\left\lbrace f\in C(I): f(t)=f(-t), \forall t\in \mathbb{R}\right\rbrace $ e $V= \left\lbrace f\in C(I): f(t)=-f(-t),\forall t\in \mathbb{R}\right\rbrace $. Mostra que $C(I)=U\bigoplus V$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[2.] Seja $T:\mathbb{R}^2\longrightarrow \mathbb{R}^2 $ uma transformação linear que dobra o comprimento do vetor $u=(2,1)$ e triplica o comprimento do vetor $v=(1,2)$, sem alterar as direções nem inverter os sentidos. Determinar $T(x,y)$. Qual é a matriz equivalente do operador $T$ na base $\left\lbrace u,v\right\rbrace$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item [3.] Verifique que o operador linear $F$ do $\mathbb{R}^{3}$ dado por $F(x,y,z)=(x+z,x-z,y)$ é um automorfismo. Determine $F^{-1}$. 
+ \end{itemize}
+ \begin{itemize}
+ 	\item[4.] Ortonormalizar a base $\beta=\left\lbrace (1,1,1),(1,-1,1),(-1,0,1)\right\rbrace $ do $\mathbb{R}^{3}$, pelo processo de Gram-Schmidt, utilizando o produto interno usual do  $\mathbb{R}^{3}$. 
+ 	
+ \end{itemize}
+ 
+\flushbottom
+\flushright
+Êxitos...!!!
+\end{document}
+

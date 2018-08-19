@@ -1,0 +1,1259 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Option test file, will be created during the first LaTeX run:
+%\begin{filecontents}{exercise.thm}
+%\def\th@exercise{%
+%  \normalfont % body font
+%  \thm@headpunct{:}%
+%}
+%\end{filecontents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,openright,oneside,a4paper,english,french,spanish,brazil]{article}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{-0.25 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			  % Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		  % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	      % Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{latexsym}
+\usepackage{makeidx}            % para definir o índice
+\usepackage{epsfig}             % para introduzir figuras no formato eps
+\usepackage{graphicx,color}     % permite a inclusao de figuras
+\usepackage{verbatim}
+\usepackage{gensymb}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\Large#1\end{center}
+	\vskip0.5em}%
+}
+
+
+
+\newtheorem{df}{Definição}
+\newtheorem{ex}{Exemplo}
+\newtheorem{teo}{Teorema}
+
+\newtheoremstyle{note}% name
+  {3pt}%      Space above
+  {3pt}%      Space below
+  {}%         Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\itshape}% Thm head font
+  {:}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{note}
+\newtheorem{note}{Note}
+
+\newtheoremstyle{citing}% name
+  {3pt}%      Space above, empty = `usual value'
+  {3pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {\thmnote{#3}}% Thm head spec
+
+\theoremstyle{citing}
+\newtheorem*{varthm}{}% all text supplied in the note
+
+\newtheoremstyle{break}% name
+  {9pt}%      Space above, empty = `usual value'
+  {9pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+
+\theoremstyle{break}
+\newtheorem{bthm}{B-Theorem}
+
+\theoremstyle{exercise}
+\newtheorem{exer}{Exercise}
+
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{thmsw}{Theorem}[section]
+%\newtheorem{corsw}[thm]{Corollary}
+\newtheorem{propsw}{Proposition}
+%\newtheorem{lemsw}[thm]{Lemma}
+
+%    Because the amsmath pkg is not used, we need to define a couple of
+%    commands in more primitive terms.
+\let\lvert=|\let\rvert=|
+\newcommand{\Ric}{\mathop{\mathrm{Ric}}\nolimits}
+
+%    Dispel annoying problem of slightly overlong lines:
+\addtolength{\textwidth}{8pt}
+
+\title{ \textbf{Notas de Aula}}
+\subtitle{\textbf{Álgebra Linear}}
+\author{\textbf{Fernando R. L. Contreras}\\
+	\large Núcleo de Tecnologia\\
+	Universidade Federal de Pernambuco (UFPE)}
+
+\begin{document}
+\maketitle
+\newpage
+\section{Revisão de Matrizes}
+\begin{df}
+	Uma matriz $m\times n$ é uma tabela de $mn$ números dispostos em $m$ linhas e $n$ colunas denotado por:\\
+	\[\begin{bmatrix}
+		a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
+		a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
+		\hdotsfor{5} \\
+		a_{m1}       & a_{m2} & a_{m3} & \dots & a_{mn}
+	\end{bmatrix}\]	
+\end{df}
+Usaremos sempre letras maiúsculas (por exemplo: A) para denotar matrizes, e quando quisermos especificar a ordem de uma matriz $\textbf{A}$, escreveremos $\textbf{A}_{m\times n}$.
+
+\begin{ex} Seja a matriz
+	\[\textbf{A}=\begin{bmatrix}
+	1       & 0 & -4 & 5 \\
+	4       & -3 & 2 & 6 \\
+	\end{bmatrix}\]\\
+cuja ordem é $2\times 4$. O elemento da primeira linha é $a_{13}=-4$.
+\end{ex}
+
+\begin{df}
+Duas matrizes $\textbf{A}=[a_{ij}]_{m\times n}$ e $\textbf{B}=[b_{ij}]_{r\times s}$ são iguais ($\textbf{A}=\textbf{B}$), se elas tem o mesmo número de filas $m=r$ e o mesmo número de colunas $n=s$ e todos os elementos correspondentes são iguais $a_{ij}=b_{ij}$.
+	
+\end{df}
+
+\begin{ex} Seja a matriz
+	\[\begin{bmatrix}
+	3^{2}   & 1     & \log(1) \\
+	2       & 2^{2} & 5 \\
+	\end{bmatrix}=\begin{bmatrix}
+	9      & \sin(90^{\circ}) & 0\\
+	2      & 4        & 5\\
+	\end{bmatrix}\] \\
+	cuja ordem é $2\times 4$. O elemento da primeira linha é $a_{13}=-4$.
+\end{ex}
+
+\subsection{Tipos especiais de matrizes}
+
+\begin{df}
+Uma matriz quadrada é aquela cujo número de linhas é igual ao número de colunas, ou seja:\\
+
+\[\begin{bmatrix}
+a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
+a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
+\hdotsfor{5} \\
+a_{n1}       & a_{n2} & a_{n3} & \dots & a_{nn}
+\end{bmatrix}\]
+\end{df}
+
+\begin{ex}
+	Sejam as matrizes quadradas:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	1   &-2 & 0 \\
+	3   & 0 & 1 \\
+	4   & 5 & 6
+	\end{bmatrix} \quad \text{e} \quad \begin{bmatrix}
+	1  
+	\end{bmatrix}
+	\end{equation*}
+	
+\end{ex}
+No caso de matrizes quadradas $A_{n\times n}$, acostumamos dizer que $A$ é uma matriz quadrada de ordem $n$.
+\begin{df}
+	A matriz nula é aquela que $a_{ij}=0$ para todo $i$ e $j$.
+\end{df}
+
+\begin{ex}
+	Sejam as matrizes nulas:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	0   & 0 & 0 \\
+	0   & 0 & 0 \\
+	0   & 0 & 0
+	\end{bmatrix}\quad \text{e} \quad \begin{bmatrix}
+	0  
+	\end{bmatrix}
+	\end{equation*}
+	
+\end{ex}
+
+\begin{df}
+	A matriz coluna é aquela que possui uma única coluna ($n=1$).
+\end{df}
+
+\begin{ex}
+	Sejam as matrizes coluna:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	1 \\
+	4 \\
+	-3
+	\end{bmatrix} \quad \text{e} \quad\begin{bmatrix}
+	x\\
+	y 
+	\end{bmatrix}
+	\end{equation*}
+\end{ex}
+
+\begin{df}
+	A matriz fila é aquela que possui uma única linha ($m=1$).
+\end{df}
+\begin{ex}
+	Sejam as matrizes fila:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	1 & 0 &-1\\	\end{bmatrix}\quad \text{e}\quad \begin{bmatrix}
+	x & y
+	\end{bmatrix}
+	\end{equation*}
+\end{ex}
+
+\begin{df}
+	Matriz diagonal é uma matriz quadrada $m=n$ onde $a_{ij}=0$, para todo $i\neq j$, isto é, os elementos que não estão na "diagonal" são nulos.
+\end{df}
+\begin{ex}
+	Sejam as matrizes diagonais:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	7   & 0 & 0 \\
+	0   & 1 & 0 \\
+	0   & 0 & -1
+	\end{bmatrix}\quad \text{e} \quad	\begin{bmatrix}
+	3   & 0 & 0 \\
+	0   & 3 & 0 \\
+	0   & 0 & 3 
+	\end{bmatrix}
+	\end{equation*}
+\end{ex}
+\begin{df}
+	A matriz identidade quadrada é aquela matriz em que $a_{ii}=1$ e $a_{ij}=0$ para $i\neq j$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	1   & 0 & 0 \\
+	0   & 1 & 0 \\
+	0   & 0 & 1
+	\end{bmatrix}\quad \text{e}\quad \begin{bmatrix}
+	1  & 0 \\
+	0  & 1
+	\end{bmatrix}
+	\end{equation*}
+\end{ex}
+\begin{df}
+	A matriz triangular superior é uma matriz quadrada onde todos os elementos abaixo da diagonal são nulos, isto é, $m=n$ e $a_{ij}=0$ para $i>j$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes triangular superior:\\
+	\begin{equation*}
+     \begin{bmatrix}
+	2   & -1 & 0 \\
+	0   & -1 & 4 \\
+	0   & 0  & 3
+	\end{bmatrix}\quad \text{e} \quad
+	\begin{bmatrix}
+	a  & b \\
+	0  & c
+	\end{bmatrix}
+	\end{equation*} 
+		 
+\end{ex}
+De maneira análoga podemos definir a matriz triangular inferior.
+\begin{df}
+	A matriz triangular inferior é uma matriz quadrada onde todos os elementos acima da diagonal são nulos, isto é, $m=n$ e $a_{ij}=0$ para $i<j$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes triangular inferior:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	2   & 0 & 0 \\
+	1   & -1 & 0 \\
+	1   & 2  & 2
+	\end{bmatrix}\quad \text{e} \quad
+	\begin{bmatrix}
+	5  & 0 & 0 \\
+	7  & 0 & 0 \\
+	2  & 1 & 3
+	\end{bmatrix}
+	\end{equation*} 
+	
+\end{ex}
+\begin{df}
+	Matriz simétrica é aquela onde $m=n$ e $a_{ij}=a_{ji}$ para todo $i$ e $j$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes simétricas:\\
+	\begin{equation*}
+	\begin{bmatrix}
+	4   & 3 & -1 \\
+	3   & 2 & 0 \\
+	-1  & 0  & 5
+	\end{bmatrix}\quad \text{e} \quad
+	\begin{bmatrix}
+	a  & b & c \\
+	b  & d & e \\
+	c  & e & f
+	\end{bmatrix}
+	\end{equation*} 
+	
+\end{ex}
+Observe que no caso da matriz simétrica a parte superior é uma reflexão da parte inferior em relação a diagonal.
+\subsection{Operações com matrizes}
+\begin{df}
+	A soma de duas matrizes $\textbf{A}=[a_{ij}]_{m\times n}$ e $\textbf{B}=[b_{ij}]_{m\times n}$ resulta outra matriz de ordem $m\times n$ que denotamos por $\textbf{A}+\textbf{B}$, cujos elementos são somas dos elementos correspondentes de $\textbf{A}$ e $\textbf{B}$. Isto é, $\textbf{A}+\textbf{B}=[a_{ij}+b_{ij}]_{m\times n}$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes:\\
+	\begin{equation*}
+	\textbf{A}=\begin{bmatrix}
+	1   & -1\\
+	4   & 0\\
+	2   &  5
+	\end{bmatrix}\quad \text{e}\quad \textbf{B}=\begin{bmatrix}
+	0  & 4 \\
+	-2  & 5 \\
+	3  & 0
+	\end{bmatrix}  
+	\end{equation*}
+	Se chamamos de $C$ a soma das duas matrizes $\textbf{A}$ e $\textbf{B}$, então
+	\begin{equation*}
+	\textbf{C}=\begin{bmatrix}
+	1   & -1\\
+	4   & 0\\
+	2   &  5
+	\end{bmatrix} + \begin{bmatrix}
+	0  & 4 \\
+   -2  & 5 \\
+	3  & 0
+	\end{bmatrix}= \begin{bmatrix}
+	1+0  & -1+4 \\
+	4-2  & 0+5 \\
+	2+1  & 5+0
+	\end{bmatrix}=\begin{bmatrix}
+	1  & 3 \\
+	2  & 5 \\
+	3  & 5
+	\end{bmatrix} 
+	\end{equation*} 
+	
+\end{ex}
+\subsection*{Propriedades}
+Dadas as matrizes $\textbf{A}$, $\textbf{B}$ e $\textbf{C}$ da mesma ordem $m\times n$ temos: 
+\begin{itemize}
+	\item[(a).] $\textbf{A}+\textbf{B}= \textbf{B}+\textbf{A}$ (comutatividade) (Prove...!)
+	\item[(b).] $\textbf{A}+(\textbf{B}+\textbf{C})=(\textbf{A}+\textbf{B})+\textbf{C}$ (Associatividade)
+	\item[(c).] $\textbf{0}+\textbf{A}=\textbf{A}+\textbf{0}=\textbf{A}$, onde $\textbf{0}$ denota a matriz nula de ordem $m \times n$. 
+\end{itemize}
+\begin{df}
+	A multiplicação de uma matriz $\textbf{A}=[a_{ij}]_{m\times n}$ por um escalar (qualquer numero real) $\alpha \in \mathbb{R}$ resulta em outra matriz $\textbf{C}=[c_{ij}]_{m\times n}$, denotado por $\textbf{C}=\alpha \textbf{A}=\alpha[a_{ij}]_{m\times n}=[\alpha a_{ij}]_{m\times n}$, onde $c_{ij}=\alpha a_{ij}$. 
+\end{df}
+Neste caso podemos dizer que $C$ é um múltiplo escalar da matriz $A$.
+\begin{ex}
+	Seja a matriz:\\
+	\begin{equation*}
+	\textbf{A}=\begin{bmatrix}
+	1   & -1\\
+	4   & 0
+	\end{bmatrix}  
+	\end{equation*}
+	Se chamamos de $\textbf{C}$ é a multiplicação escalar de $\alpha=2$ por $\textbf{A}$, então
+	\begin{equation*}
+	\textbf{C}=2\begin{bmatrix}
+	1   & -1\\
+	4   & 0
+	\end{bmatrix} = \begin{bmatrix}
+	2\times 1  & 2\times (-1) \\
+	2\times 4  & 2\times 0
+	\end{bmatrix}=\begin{bmatrix}
+	2  & -2 \\
+	8  & 0
+	\end{bmatrix} 
+	\end{equation*} 
+	
+\end{ex}
+\subsection*{Propriedades}
+Dadas duas matrizes $\textbf{A}$ e $\textbf{B}$ da mesma ordem $m\times n$ e números $\alpha_{1}$, $\alpha_{2}$ e $\alpha_{3}$ temos: 
+\begin{itemize}
+	\item[(a).] $\alpha_{1} (\textbf{A}+\textbf{B})= \alpha_{1} \textbf{A}+ \alpha_{1} \textbf{B}$ 
+	\item[(b).] $(\alpha_{1}+\alpha_{2})\textbf{A}=\alpha_{1}\textbf{A}+\alpha_{2}\textbf{A}$
+	\item[(c).] $0A=0$, onde $0$ é o número zero.
+	\item[(d).] $\alpha_{1}(\alpha_{2}\textbf{A})=(\alpha_{1}\alpha_{2})\textbf{A}$ 
+\end{itemize}
+\begin{df}
+	O produto de duas matrizes,  tais que o número de colunas da primeira matriz é igual ao
+	número de linhas da segunda, $\textbf{A}=[a_{ij}]_{m\times r}$ e $\textbf{B}=[b_{ij}]_{r\times n}$ é definido pela matriz de ordem $m\times n$:\\
+	\begin{equation*}
+	\textbf{C}=\textbf{A}\textbf{B}
+	\end{equation*}
+	obtida da seguinte forma:\\
+	\begin{equation*}
+	c_{ij}=a_{i1}b_{1j}+ a_{i2}b_{2j}+...+a_{ir}b_{rj} 
+	\end{equation*}
+	para todo $i=1,...,m$ e $j=1,...,n$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes:\\
+	\begin{equation*}
+	\textbf{A}=\begin{bmatrix}
+	2   & 1\\
+	4   & 2\\
+	5   &  3
+	\end{bmatrix}\quad \text{e}\quad B=\begin{bmatrix}
+	1  & -1 \\
+	0  &  4
+	\end{bmatrix}  
+	\end{equation*}
+	Se chamamos de $\textbf{C}$ a soma das duas matrizes $\textbf{A}$ e $\textbf{B}$, então
+	\begin{equation*}
+	\textbf{C}=\begin{bmatrix}
+	2   & 1\\
+	4   & 2\\
+	5   & 3
+	\end{bmatrix} \begin{bmatrix}
+	1  & -1 \\
+	0  & 4 
+	\end{bmatrix}= \begin{bmatrix}
+	2\times 1 + 1 \times 0  & 2 \times (-1) + 1 \times 4 \\
+	4 \times 1 + 2 \times 0 & 4\times (-1) + 2\times 4 \\
+	5\times 1 +3\times 0    & 5\times (-1) + 3\times 4
+	\end{bmatrix}=\begin{bmatrix}
+	2  & 2 \\
+	2  & 4 \\
+	5  & 7
+	\end{bmatrix} 
+	\end{equation*} 
+	
+\end{ex}
+\subsection*{Propriedades}
+ 
+\begin{itemize}
+	\item[(a).] Em geral $\textbf{A}\textbf{B}\neq \textbf{B}\textbf{A}$.
+	\item[(b).] $\textbf{I}\textbf{A}=\textbf{A}\textbf{I}=\textbf{A}$ ($\textbf{I}$ matriz identidade de ordem $n\times n$).
+	\item[(c).] $\textbf{A}(\textbf{B}+\textbf{C})=\textbf{A}\textbf{B}+\textbf{A}\textbf{C}$, onde a matriz $\textbf{A}$ é de ordem $m\times r$ e as matrizes $\textbf{B}$ e $\textbf{C}$ são de ordem $r \times n$.
+	\item[(d).] $(\textbf{A}+\textbf{B})\textbf{C}=\textbf{A}\textbf{C}+\textbf{B}\textbf{C}$, onde a matriz $\textbf{C}$ é de ordem $r\times n$ e as matrizes $\textbf{A}$ e $\textbf{B}$ são de ordem $m \times r$.
+	\item[(e).] $(\textbf{A}\textbf{B})\textbf{C}=\textbf{A}(\textbf{B}\textbf{C})$, em geral as matrizes $\textbf{A}$ pode-se considerar de ordem $m\times r$, $\textbf{B}$ de ordem $r\times s$ e $\textbf{C}$ de ordem $s\times n$.
+	\item[(d).] $\textbf{0}\textbf{A}=\textbf{A}\textbf{0}=\textbf{0}$.
+\end{itemize}
+\begin{df}
+	A transposta de uma matriz $\textbf{A}=[a_{ij}]_{m\times n}$ é definida por:
+	\begin{equation*}
+	\textbf{B}=\textbf{A}^{t}
+	\end{equation*}
+	obtida trocando-se as linhas com as colunas, ou seja,
+	\begin{equation*}
+	b_{ij}=a_{ji}
+	\end{equation*}
+	para todo $i=1,...,m$ e $j=1,...,n$.
+\end{df}
+\begin{ex}
+	Sejam as matrizes:\\
+	\begin{equation*}
+	\textbf{A}=\begin{bmatrix}
+	2   & 1\\
+	0   & 3\\
+	-1   &  4
+	\end{bmatrix}  
+	\end{equation*} 
+	A matriz transposta de $\textbf{A}$ é dada por:
+	\begin{equation*}
+	\textbf{A}^{t}=\begin{bmatrix}
+	2   & 0 & -1\\
+	1   & 3 & 4\\
+	\end{bmatrix}  
+	\end{equation*}	
+\end{ex}
+\subsection*{Propriedades}
+Consideremos duas matrizes $\textbf{A}$ e  $\textbf{B}$ de ordem $m\times n$: 
+\begin{itemize}
+	\item[(a).] Dizemos que uma matriz é simétrica se, e somente se, ela é igual à sua transposta ($\textbf{A}=\textbf{A}^{t}$).
+	\item[(b).] $(\textbf{A}^{t})^{t}=\textbf{A}$, isto é, a transposta da transposta de uma matriz é ela mesma.
+	\item[(c).] $(\textbf{A}+\textbf{B})^{t}=\textbf{A}^{t}+\textbf{B}^{t}$ sempre que $\textbf{A}$ e $\textbf{B}$.
+	\item[(d).] $(\alpha \textbf{A})^{t}=\alpha \textbf{A}^{t}$, onde $\alpha$ é qualquer escalar.
+	\item[(e).] $(\textbf{A}\textbf{B})^{t}=\textbf{B}^{t}\textbf{A}^{t}$, para $\textbf{A}=[a_{ij}]_{m\times r}$ e $\textbf{B}=[b_{ij}]_{r\times n}$.
+\end{itemize}
+\subsection{Exercícios}
+\begin{itemize}
+\item[1.] Dada as matrizes:
+\begin{equation*}
+\textbf{A}=\begin{bmatrix}
+1   & 0 & 0\\
+0   & 0 & 1\\
+0   & 1 & 0
+\end{bmatrix} \quad \text{e} \quad \textbf{B}=\begin{bmatrix}
+a  \\
+b  \\
+c  
+\end{bmatrix}
+\end{equation*} 
+Calcule $(\textbf{B}^{t}\textbf{A})^{t}$\\  
+Rpta: $(\textbf{B}^{t}\textbf{A})^{t}=\begin{bmatrix}
+a\\
+c\\
+b
+\end{bmatrix} $
+\item[2.] Sejam as matrizes:
+
+\begin{equation*}
+\textbf{A}=\begin{bmatrix}
+1   & 0 & -2\\
+0   & 1 & 3\\
+0   & 0 & 1
+\end{bmatrix} \quad \text{e} \quad \textbf{B}=\begin{bmatrix}
+1 & 0 & 2 \\
+0 & 1 & -3\\
+0 & 0 & 1
+\end{bmatrix}
+\end{equation*} 
+Calcule $\textbf{A}\textbf{B}-\textbf{I}$.
+\item[2.] Mostre que:
+
+\subitem2.1. $\textbf{A}\textbf{A}^{t}$ é simétrica.
+\subitem2.2. $ \textbf{A}+\textbf{A}^{t}$ é simétrica.
+\subitem2.3. $\textbf{A}-\textbf{A}^{t}$ é anti-simétrica.
+
+\item[3.] Mostre que toda matriz quadrada é a soma de uma matriz simétrica e uma matriz anti-simétrica.\\
+\textit{Sugestão.} $\frac{1}{2}(\textbf{A}+\textbf{A}^{t})$ é simétrica e $\frac{1}{2}(\textbf{A}-\textbf{A}^{t})$ é anti-simétrica a soma dos dois é uma matriz quadrada $\textbf{A}$. 
+
+\end{itemize}
+\newpage
+\section{Sistemas lineares}
+
+\begin{df}
+Dados os números reais $\alpha_{1},\alpha_{2},...,\alpha_{n},\beta $ $(n\geqslant1)$, à equação:\\
+\begin{equation*}
+\alpha_{1}x_{1}+\alpha_{2}x_{2}+...+\alpha_{n}x_{n}=\beta
+\end{equation*} 
+onde os $x_{i}$ são variáveis em $\mathbb{R}$, damos o nome de \textbf{equação linear} sobre $\mathbb{R}$ nas incógnitas $x_{1},x_{2},...x_{n}$.\\
+
+\end{df}
+
+Uma \textbf{\textit{solução}} dessa equação é uma sequência de $n$ números reais (não necessariamente distintos entre si), indicada por ($b_{1},...,b_{n}$), tal que:\\
+\begin{equation*}
+\alpha_{1}b_{1}+\alpha_{2}b_{2}+...+\alpha_{n}b_{n}=\beta
+\end{equation*} 
+é uma frase verdadeira.
+
+\begin{ex}
+	Dada a equação: $2x_{1}-x_{2}+x_{3}=1$, a terna ordenada $(1,1,0)$ é uma solução dessa equação pois $2\cdot1-1+0=1$ é verdadeira.
+\end{ex}
+\begin{df}
+	Um sistema de m equações lineares com n incógnitas ($m,n\geqslant1$) é um conjunto de m equações lineares, cada uma delas com n incógnitas, consideradas simultaneamente. Um sistema linear se apresenta do seguinte modo:\\
+	\begin{equation*}
+	\begin{cases}
+	a_{11}x_{1}+...+a_{1n}x_{n}=\beta_{1} \\
+	a_{21}x_{1}+...+a_{2n}x_{n}=\beta_{2} \\
+	......\\
+	a_{m1}x_{1}+...+a_{mn}x_{n}=\beta_{m} 
+	\end{cases}
+	\end{equation*} 
+	 
+\end{df}
+Uma solução do sistema acima é uma \textit{n}-upla $(b_{1},...,b_{n})$ de números reais que é solução de cada uma das equações do sistema.
+\begin{ex}
+	Dado o sistema:\\
+	\begin{equation*}
+	\begin{cases}
+	2x-y+z=1 \\
+    x+2y=6 
+	\end{cases}
+	\end{equation*}
+\end{ex}
+Uma solução do sistema é $(0,3,4)$. Notemos que essa solução não é única: a terna $(\frac{8}{5},\frac{11}{5},0)$ também é solução do sistema.
+Se, num sistema, tivermos $\beta_{1},\beta_{2},...,\beta_{m}$, o sistema será homogêneo. A n-upla $(0,0,...,0)$ é solução do sistema neste caso e por isso todo sistema homogêneo é compatível, de acordo com a definição anterior. A solução $(0,0,...,0)$ chama-se solução trivial do sistema homogêneo. 
+
+\begin{df}
+	Dizemos que um sistema $S$ linear é \textbf{incompatível} se $S$ não admite nenhuma solução. Um sistema linear que admite uma única solução é chamado \textbf{compatível determinado}. Se o sistema linear $S$ admitir mais do que uma solução então ele recebe o nome de \textbf{compatível indeterminado}. 	
+\end{df}
+\begin{ex}
+	O sistema:\\
+	\begin{equation*}
+	\begin{cases}
+	x-2y=-1 \\
+	-x+3y=3
+	\end{cases}
+	\end{equation*} 
+\end{ex}
+Possui exatamente uma única solução o qual é  $(3,2)$ (fazer o gráfico).
+\begin{ex}
+	O sistema:\\
+	\begin{equation*}
+	\begin{cases}
+	x-2y=-1 \\
+	-x+2y=3
+	\end{cases}
+	\end{equation*} 
+\end{ex}
+Não possui nenhuma solução (fazer o gráfico).
+\begin{ex}
+	O sistema:\\
+	\begin{equation*}
+	\begin{cases}
+	x-2y=-1 \\
+	-x+2y=1
+	\end{cases}
+	\end{equation*} 
+\end{ex}
+Possui infinitas soluções (fazer o gráfico).
+\newpage
+\section{Sistemas equivalentes}
+Seja $S$ um sistema linear de $m$ equações com $n$ incógnitas. Interessa-nos considerar os sistemas que podem ser obtidos de $S$ de uma das seguintes maneiras:
+
+\begin{itemize}
+	\item[I.] \textit{Permutar} duas das equações de $S$. É evidente que se $S_{1}$ indicar o sistema assim obtido, então toda solução de $S_{1}$ é solução de $S$ e vice-versa.
+	\item[II.] \textit{Multiplicar} uma das equações $S$ por um número real $\lambda \neq 0$. Indicando por $S_{1}$ o sistema assim obtido mostremos que toda solução de $S_{1}$ é solução de $S$ e vice-versa.
+	\item [III.] \textit{Somar} a uma das equações do sistema uma outra equação desse sistema multiplicada por um número real, ou seja
+	 \begin{equation*}
+	 \begin{cases}
+	 \alpha_{11}x_{1}+...+\alpha_{1n}x_{n}=\beta_{1}\\
+	 ....................................\\
+	 \alpha_{i1}x_{1}+...+\alpha_{in}x_{n}=\beta_{i}\\
+	 (\lambda\alpha_{i1}+\alpha_{j1})x_{1}+...+(\lambda\alpha_{in}+\alpha_{jn})x_{n}=\lambda\beta_{i}+\beta_{j} \\
+	 ......................................\\
+	 \alpha_{m1}x_{1}+...+\alpha_{mn}x_{n}=\beta_{m}\\
+	 \end{cases}
+	 \end{equation*}   
+\end{itemize}
+Assim obtido e o sistema $S$ ou são ambos incompatíveis ou admitem ambos as mesmas soluções.
+\begin{df}
+	Dado um sistema linear $S$, qualquer das modificações explicadas acima em $(I)$, $(II)$ e $(III)$ que se faça com esse sistema recebe o nome de \underline{operação elementar com $S$}. Se um sistema linear $S_{1}$ foi obtido de um sistema linear $S$ através de um número finito de operações elementares, dizemos que $S_{1}$ é equivalente a $S$. Notação $S_{1}\equiv S$	
+\end{df}
+\subsection*{Propriedades}
+\begin{itemize}
+	\item[(a).] $S\equiv S$ (reflexiva) 
+	\item[(b).] $S_{1} \equiv S$, então $S \equiv S_{1}$ (simétrica)
+	\item[(c).] $S_{1} \equiv S$ e $S \equiv S_{2}$ , então $S_{1} \equiv S_{2}$ (transitiva)
+\end{itemize}
+Desta forma criamos um mecanismo extremamente util para a procura de soluções de um sistema linear $S$. Procuramos sempre encontrar um sistema linear equivalente a $S$ e que seja \underline{mais simples}.
+\begin{ex}
+	Analise o seguinte sistema:\\
+	\begin{equation*}
+	\begin{cases}
+	x-y+z=1 \\
+	2x-y+z=4\\
+	x-2y+2z=0
+	\end{cases}
+	\end{equation*} 
+\end{ex}
+Solução:
+
+\begin{equation*}
+\begin{cases}
+x-y+z=1 \\
+2x-y+z=4\\
+x-2y+2z=0
+\end{cases} \equiv (*) \begin{cases}
+x-y+z=1 \\
+y-z=2\\
+-y+z=-1
+\end{cases} \equiv (**) \begin{cases}
+x-y+z=1 \\
+y-z=2\\
+0=1
+\end{cases}
+\end{equation*}
+$(*)$ Multiplicamos por $-2$ a primeira equação e somamos o resultado com a segunda equação; multiplicamos a primeira equação por $-1$ e somamos com a terceira.\\
+$(**)$ Somamos a segunda equação com a terceira. 
+
+\newpage
+\section{Sistemas escalonados}
+Consideramos um sistema linear de $m$ equações com $n$ incógnitas que tem o seguinte aspecto:
+
+\begin{equation*}
+\begin{cases}
+\alpha_{1r_{1}}x_{r_{1}}+...+\alpha_{1n}x_{n}=\beta_{1}\\
+\alpha_{2r_{2}}x_{r_{2}}+...+\alpha_{2n}x_{n}=\beta_{2}\\
+......................................\\
+\alpha_{kr_{k}}x_{r_{k}}+...+\alpha_{kn}x_{n}=\beta_{k}\\
+0x_{n}=\beta_{k+1}\\
+\end{cases}
+\end{equation*} 
+onde $\alpha_{1r_{1}}\neq 0$, $\alpha_{2r_{2}}\neq 0$, ..., $\alpha_{kr_{k}}\neq 0$ e cada $r_{i}\geq 1$.\\
+Se tivermos $1\leq r_{1}<r_{2}<...<r_{k}\leq n$ diremos que $S$ é um sistema linear escolado. 
+\begin{ex}
+	Exemplo de sistema escalonado:\\
+	\begin{equation*}
+	\begin{cases}
+	2x-y-z-3t=0 \\
+	z-t=1\\
+	2t=2
+	\end{cases}
+	\end{equation*} 
+\end{ex}
+\begin{teo}
+Todo sistema linear $S$ é equivalente a um sistema escalonado.	
+\end{teo}
+\begin{ex}
+	Escalonar o seguinte sistema:
+
+\begin{equation*}
+\begin{cases}
+2x-y+z-t=4 \\
+3x+2y-z+2t=1\\
+2x-y-z-t=0\\
+5x+2t=1
+\end{cases} \equiv \begin{cases}
+z+2x-y-t=4 \\
+-z+3x+2y+2t=1\\
+-z+2x-y-t=0\\
+5x+2t=1
+\end{cases} \equiv \begin{cases}
+z+2x-y-t=4 \\
+5x+y+t=5\\
+4x-2y-2t=4\\
+5x+2t=1
+\end{cases}
+\end{equation*}
+\begin{equation*}
+\equiv
+\begin{cases}
+z+2x-y-t=4 \\
+x+\frac{1}{5}y+\frac{1}{5}t=1\\
+4x-2y-2t=4\\
+5x+2t=1
+\end{cases} \equiv \begin{cases}
+z+2x-y-t=4 \\
+x+\frac{1}{5}y+\frac{1}{5}t=1\\
+\frac{7}{10}y+\frac{7}{10}t=0\\
+y-t=4
+\end{cases} \equiv \begin{cases}
+z+2x-y-t=4 \\
+5x+y+t=5\\
+y+t=0\\
+y-t=4
+\end{cases}\equiv \begin{cases}
+z+2x-y-t=4 \\
+5x+y+t=5\\
+y+t=0\\
+-2t=4
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\equiv
+\begin{cases}
+z+2x-y-t=4 \\
+5x+y+t=5\\
+y+t=0\\
+-2t=4
+\end{cases}
+\end{equation*}
+
+\end{ex}
+
+\begin{ex}
+	Discutir e resolver o seguinte sistema:\\
+	\begin{equation*}
+	\begin{cases}
+		x-y+z=1 \\
+		2x+y+2z=5\\
+		3x-y+z=1
+	\end{cases}
+	\end{equation*}
+\end{ex}
+\textit{Resposta:} O sistema é compatível determinado e $(0,-2/3,1/3)$ é sua solução.
+\newpage
+\section{Matrizes Inversíveis}
+
+\begin{df}
+	Uma matriz $A$ de ordem $n$ se diz inversível se, e somente se, existe uma matriz $B$, também de ordem $n$, de modo que:\\
+	\begin{equation*}
+	AB=BA=I
+	\end{equation*}
+\end{df}
+Esta matriz $B$, caso existe, é única e chama-se inversa de $A$, indica-se por $A^{-1}$.\\
+
+Observação. \\
+(a) Se uma linha (ou coluna) de uma matriz $A$ é nula, então $A$ não é invertível. \\
+(b) Se $A$ e $B$ são matrizes de ordem $n$, ambas inversíveis, então $AB$ também é inversível e $(AB)^{-1}=B^{-1}A^{-1}$.\\
+(c) Se $A$ é invertível, então $A^{-1}$ também e $(A^{-1})^{-1}=A$.
+
+\begin{teo}
+	Uma matriz $A$ é inversível se, e somente se, $I\equiv A$. Neste caso, a mesma sequencia de operações elementares que transforma $A$ em $I$, transforma $I$ em $A^{-1}$.
+\end{teo}
+\begin{ex}
+	Verificar se a matriz:\\
+	\begin{equation*}
+	A=\begin{bmatrix}
+	1   & 1 & 0 \\
+	0   & 1 & 1 \\
+	1   & 0 & 2
+	\end{bmatrix}
+	\end{equation*}
+\end{ex}
+É inversível e determinar $A^{-1}$, caso esta matriz exista.
+\section*{Sistemas de Cramer}
+Seja:\\
+\begin{equation*}
+S:\begin{cases}
+\alpha_{11}x_{1}+...+\alpha_{1n}x_{n}=\beta_{1}\\
+\alpha_{21}x_{1}+...+\alpha_{2n}x_{n}=\beta_{2}\\
+......................................\\
+\alpha_{m1}x_{1}+...+\alpha_{mn}x_{n}=\beta_{n}\\
+\end{cases}
+\end{equation*} 
+Um sistema linear de $m$ equações com $n$ incógnitas sobre o conjunto dos números reais. Se formamos as matrizes
+
+\begin{equation*}
+A=\begin{bmatrix}
+\alpha_{11}& ... &\alpha_{1n}\\
+\alpha_{21}& ... &\alpha_{2n}\\
+....&....&....\\
+\alpha_{m1}& ... &\alpha_{mn}
+\end{bmatrix}, \quad X=\begin{bmatrix}
+x_{1}\\
+x_{1}\\
+....\\
+x_{n} 
+\end{bmatrix}\quad \text{e} \quad B=\begin{bmatrix}
+\beta_{1}\\
+\beta_{1}\\
+....\\
+\beta_{m} 
+\end{bmatrix}
+\end{equation*}
+de tipos $m\times n$, $n\times 1$ e $m\times 1$, respectivamente, então $S$ poderá ser escrito sob a forma matricial\\
+\begin{equation*}
+AX=B
+\end{equation*}
+onde $A$ recebe o nome de matriz dos coeficientes de $S$.\\
+
+Um sistema de Cramer é um sistema linear de $n$ equações com $n$ incógnitas cuja matriz dos coeficientes é inversível. Se $AX=B$ é um sistema de Cramer, como:\\
+\begin{equation*}
+AX=B \Leftrightarrow A^{-1}(AX)=A^{-1}B \Leftrightarrow X=A^{-1}B
+\end{equation*}
+Então esse sistema é compatível determinado e sua única solução é dada por $A^{-1}B$. Em particular um sistema quadrado e homogêneo cuja matriz dos coeficientes é inversível só admite a solução trivial.
+
+\begin{ex}
+	Verificar se a matriz:\\
+	\begin{equation*}
+\begin{cases}
+x+y=1\\
+y+z=1\\
+x+2z=0
+\end{cases}
+	\end{equation*}
+\end{ex}
+é a matriz 
+\begin{equation*}
+A=\begin{bmatrix}
+1 & 1 & 0\\
+0 & 1 & 1\\
+1 & 0 & 2 
+\end{bmatrix}
+\end{equation*}
+que já vimos ser inversível; já determinamos também 
+\begin{equation*}
+A^{-1}=\begin{bmatrix}
+\frac{2}{3} & \frac{-2}{3} & \frac{1}{3}\\
+\frac{1}{3} & \frac{2}{3} & \frac{-1}{3}\\
+\frac{-1}{3} & \frac{1}{3} & \frac{1}{3} 
+\end{bmatrix}
+\end{equation*}
+Logo:
+\begin{equation*}
+X=\begin{bmatrix}
+x\\
+y\\
+z 
+\end{bmatrix}=A^{-1}\begin{bmatrix}
+1\\
+1\\
+0 
+\end{bmatrix}=\begin{bmatrix}
+0\\
+1\\
+0 
+\end{bmatrix}
+\end{equation*}
+e a solução do sistema é $(0,1,0)$.
+
+\newpage 
+\section{Espaços Vetoriais }
+
+\begin{df}
+	Dizemos que um conjunto $V$ não vazio é um espaço vetorial sobre $ \mathbb{R}$ quando e somente quando:\\
+	\textbf{I}. Existe uma adição $(u,v)\mapsto u+v$ em $V$, com as seguinte propriedades:
+	\begin{itemize}
+		\item u+v=v+u, $\forall u, v \in V$ (comutativa);
+		\item u+(v+w)=(u+v)+w,  $\forall u, v, w \in V$ (associativa);
+		\item Existe em $V$ um elemento neutro para essa adição o qual será simbolizado genericamente por $0$. Ou seja:\\
+		$\exists 0\in V | u+0=u$, $\forall u \in V$ ;
+		\item Para todo elemento $u$ de $V$ existe o oposto; indicaremos por $(-u)$ esse é oposto. Assim:\\
+		$\forall u \in V$, $\exists 0\in V | u+(-u)=0$;
+		
+	\end{itemize}
+	\textbf{II}. esta definida uma multiplicação de $\mathbb{R}\times V$ em $V$, o que significa que a cada par $(\alpha, u)$ de $\mathbb{R}\times V$ esta associado um único elemento de $V$ que se indica por $\alpha u$, e para essa multiplicação tem-se o seguinte:
+	\begin{itemize}
+		\item $\alpha(\beta u)=(\alpha\beta) u$ 
+		\item $(\alpha+\beta)u=\alpha u +\beta u$
+		\item $\alpha(u+v)=\alpha u+ \alpha v$ ;
+		\item $1u=u$, para quaisquer $u, v$ de $V$ e $\alpha, \beta$ de $\mathbb{R}$.
+		
+	\end{itemize}
+\end{df}
+                                                       
+
+\begin{ex}
+Para todo número natural $n$, o simbolo $\mathbb{R}^{n}$ representa o espaço vetorial euclidiano n-dimensional. Os elementos de $\mathbb{R}^{n}$ são as listas ordenadas $u=\left( x_{1},...,x_{n}\right)$ e $v=\left(y_{1},...,y_{n} \right)$ de números reais.	
+\end{ex}
+As equações do espaço vetorial $\mathbb{R}^{n}$ são definidas pondo:\\
+$u+v=\left(x_{1}+y_{1},...,x_{n}+y_{n}\right)$\\
+$\alpha u=\left(\alpha x_{1},...,\alpha x_{n}\right)$.
+
+O vetor zero é, por definição, aquela cujas coordenadas são todos iguais a zero, $0=\left(0,...,0\right)$. O inverso aditivo de $u=\left(x_{1},...,x_{n}\right)$ é $-u=\left(-x_{1}....,-x_{n} \right)$ verifica-se, sem dificuldade que estas definições fazem $\mathbb{R}^{n}$ um espaço vetorial.
+
+\begin{ex}
+Uma matriz (real) $m\times n$, $A=[a_{ij}]$ é uma lista de números reais $a_{ij}$ com indices duplos, onde $1\leqslant i \leqslant m$ e $1\leqslant i \leqslant n$, podemos representar a matriz $A$ como: \\
+\begin{equation*}
+A=\begin{bmatrix}
+a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
+a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
+\hdotsfor{5} \\
+a_{m1}       & a_{m2} & a_{m3} & \dots & a_{mn}
+\end{bmatrix}
+\end{equation*}
+\end{ex}
+O conjunto $M\left( m\times n\right) $ de todas as matrizes $m\times n$ torna-se um espaço vetorial quando nele se define a soma das matrizes $A=[a_{ij}]$ e $B=[b_{ij}]$ como $A+B=[a_{ij}+b_{ij}]$ e o produto da matriz $A$ pelo numero real $\alpha$ como $\alpha A=[\alpha a_{ij}]$. 
+
+A matriz nula $0\in M\left(m\times n\right)$ é aquela formada por zeros e o inverso aditivo da matriz $A=[a_{ij}]$ é $-A=[-a_{ij}]$.
+
+\begin{ex}
+Em $\mathbb{R}^{2}$, mantenhamos a definição do produto $\alpha v$ de um número por um vetor mas modifiquemos, de 3 maneiras diferentes, a definição da soma $u=\left(x, y\right) $ e $v=\left(x^{'}, y^{'}\right) $. Em cada tentativa,  dizer quais axiomas de espaço vetorial continuam válidos e quais são violados:
+
+\textbf{a)} $u+v=\left(x+y^{'}, x^{'}+y \right) $
+
+\textbf{b)} $u+v=\left(xx^{'},yy^{'} \right) $
+
+\textbf{c)} $u+v=\left(3x+3x^{'},5x+5x^{'} \right)$
+\end{ex}
+Escrevemos $u=(x_{1},y_{1})$, $v=(x_{2},y_{2})$ e $w=(x_{3},y_{3})$ no que se segue. Em todos os itens funcionam os axiomas da associatividade do produto e da multiplicação por 1, que não tem nada ver com a adição.\\
+
+\textbf{a)} Para $u+v=(x_{1}+y_{2},x_{2}+y_{1})$. 
+
+Verificamos a comutatividade:\\
+$u+v=(x_{1},y_{1})+(x_{2},y_{2})=(x_{1}+y_{2},x_{2}+y_{1})$ e $v+u=(x_{2},y_{2})+(x_{1},y_{1})=(x_{2}+y_{1},x_{1}+y_{1})$. São diferentes em geral. FALHA!!\\
+
+Agora verificamos a associatividade:\\
+$(u+v)+w=(x_{1}+y_{2},x_{2}+y_{1})+(x_{3},y_{3})=(x_{1}+y_{2}+y_{3},x_{3}+x_{2}+y_{1})$ e\\ $u+(v+w)=(x_{1},y_{1})+(x_{2}+y_{3},x_{3}+y_{2})=(x_{1}+x_{3}+y_{2},x_{2}+y_{3}+y_{1})$. São diferentes em geral. FALHA!!
+
+Verificamos o vetor nulo:\\
+$O+u=(a,b)+(x_{1},y_{1})=(a+y_{1},x_{1}+b)=(x_{1},y_{1})$ logo $a=x_{1}-y_{1}$ e $b=y_{1}-x_{1}$, assim concluímos que o suposto vetor nulo $O=(a,b)$ não é único. Consequentemente não faz sentido falar do inverso aditivo.
+
+Verificamos a distributividade:\\
+sejam $\alpha u +\beta u=(\alpha x_{1}+\beta y_{1},\beta x_{1}+\alpha y_{1})$ e $(\alpha+\beta)u=((\alpha+\beta)x_{1},(\alpha+\beta)y_{1})$. São diferentes em geral. FALHA!!
+
+De outra parte temos:\\
+$\alpha(u+v)=(\alpha(x_{1}+y_{2}),\alpha(x_{2}+y_{1}))$ e $\alpha u+\alpha v=(\alpha x_{1},\alpha y_{1})+(\alpha x_{2},\alpha y_{2})=(\alpha(x_{1}+y_{2}),\alpha(x_{2}+y_{1}))$. Funciona!!
+
+Deixar como tarefa o \textbf{b)} e \textbf{c)}.
+
+\subsection{Subespaço vetorial}
+\begin{df}	
+Dado um espaço vetorial $V$, um subconjunto $W$, não vazio, será um subespaço vetorial de V se:
+\item[i.] $0\in W$;
+\item[ii.] Para quaisquer $u$, $v$, então $u+v\in W$;
+\item[iii.] Para quaisquer $\alpha\in \mathbb{R}$, $u\in W$, tivermos $\alpha u\in W$
+\end{df}
+\underline{\textit{Note}}. Todo espaço vetorial admite pelo menos dois subespaços vetoriais (que são chamados subespaços triviais), o conjunto somente formado pelo vetor nulo e o próprio espaço vetorial.
+\begin{ex}
+	Seja $V= \mathbb{R}^{3}$ e $W\subset V$, um plano passando pela origen.
+\end{ex}
+
+\begin{ex}
+	Seja $V= \mathbb{R}^{5}$ e $W=\{(0,x_{2},x_{3},x_{4},x_{5}): x_{i}\in \mathbb{R}\}$, um plano que não passa pela origem.
+\end{ex}
+$W$ não é subespaço de $V$, pois existem $u$ e $v\in W$ tal que $u+v\notin W$.
+\begin{ex}
+	Seja $V= \mathbb{R}^{5}$ e $W=\{(0,x_{2},x_{3},x_{4},x_{5}): x_{i}\in \mathbb{R}\}$, um plano que não passa pela origem.
+\end{ex}
+\begin{ex}
+	Seja $V= \mathbb{R}^{2}$ e $W=\{(x,x^{2}): x\in \mathbb{R}\}$. Se escolhermos $u=(1,1)$ e $v=(2,4)$ temos que $u+v=(3,5) \notin W$. Assim $W$ não é subespaço vetorial de $V$.
+\end{ex}
+\begin{teo}
+	(Interseção de subconjuntos): Dados $W_{1}$ e $W_{2}$ subespaços de um espaço vetorial $V$, a interseção $W_{1}\cap W_{2}$ ainda é subespaço vetorial.
+\end{teo}
+\begin{ex}
+	Seja $V= \mathbb{R}^{3}$ e $W_{1}\cap W_{2}$ é a reta de interseção dos planos $W_{1}$ e $W_{2}$.
+\end{ex}
+\begin{teo}
+	(Soma de subespaços): Sejam $W_{1}$ e $W_{2}$ subespaços de um espaço vetorial $V$. Então, o conjunto $W_{1}+W_{2}=\{v\in V: v=w_{1}+w_{2}, w_{1}\in W_{1} \text{e} w_{2}\in W_{2}\}$ é subespaço de $V$.
+\end{teo}
+Quando $W_{1}\cap W_{2}=\{0\}$, então $W_{1}+W_{2}$ é chamado de soma direta de $W_{1}$ e $W_{2}$, denotado por $W_{1}\oplus W_{2}$. Todo vetor $w\in W_{1}\oplus W_{2}$ se escreve, de modo único, como a soma $w=w_{1}+w_{2}$ onde $W_{1}$ e $W_{2}$.
+
+\subsection{Combinação Linear} 
+
+Vamos comentar, agora, uma das características mais importantes de um espaço vetorial, que é a obtenção de novos vetores a partir de vetores dados.
+\begin{df}
+Sejam $V$ um espaço vetorial real e sejam $v_{1},...,v_{n}\in V$ e $\alpha_{1},...,\alpha_{n}\in \mathbb{R}$. Então, o vetor $v=\alpha_{1}v_{1}+...+\alpha_{n}v_{n}$ é um elemento de $V$ ao que chamaremos combinação linear de $v_{1},...,v_{n}$.
+\end{df}
+\subsubsection{Subespaços gerados}
+Uma vez fixados os vetores $v_{1},...,v_{n}\in V$, o conjunto $W$ de todos os vetores de $V$ que são combinação linear destes, é chamado de subespaço gerado por $v_{1},...,v_{n}$ e usamos a notação\\
+
+$W=\left[ v_{1},...,v_{n}\right]=\left\lbrace v\in V:v=\alpha_{1}v_{1}+...+\alpha_{n}v_{n}, \alpha_{i}\in \mathbb{R}, \leqslant i\leqslant n  \right\rbrace $.
+
+Uma outra caracterização de subespaço gerado é a seguinte: $W=\left[ v_{1},...,v_{n}\right]$ é o menor subespaço de $V$ que contem o conjunto de vetores $\{v_{1},...,v_{n}\}$, no sentido de que qualquer outro subespaço $W^{'}$ de $V$ que contenha $\{v_{1},...,v_{n}\}$ satisfará $W\subset W^{'}$. (TAREFA-PROVE!!!)
+\begin{ex}
+	No espaço vetorial $P_{2}$ dos polinômios de grau $\leqslant 2$, o polinômio $v=7x^{2}+11x-26$ e uma combinação linear dos polinômios $v_{1}=5x^{2}-3x+2$ e $v_{2}=-2x^{2}+5x-8$?.
+\end{ex}
+Seja $v=\alpha v_{1}+\beta v_{2}$, devemos calcular $\alpha$ e $\beta$, caso eles existam e sejam números reais, então podemos conclui que $v$ pode-se escrever como combinação linear de $v_{1}$ e $v_{2}$.
+
+Em efeito:\\
+$7x^{2}+11x-26=\alpha (5x^{2}-3x+2)+\beta(-2x^{2}+5x-8)=(5\alpha-2\beta)x^{2}+(-3\alpha+5\beta)x+(2\alpha-8\beta)$
+
+Logo resolvendo o seguinte sistema linear: 
+\begin{equation*}
+\begin{cases}
+5\alpha-2\beta=7   \\
+-3\alpha+5\beta=11 \\
+2\alpha-8\beta=-26 
+\end{cases}
+\end{equation*} 
+obtemos o valor de $\alpha=3$ e $\beta=4$. Portanto, $v$ pode-se escrever como combinação linear de $v_{1}$ e $v_{2}$. 
+\begin{ex}
+	Sejam os vetores $v_{1}=(1,-3,2)$ e $v_{2}=(2,4,-1)$. Escreva o vetor $v=(-4,-18,7)$ como combinação linear dos vetores $v_{1}$ e $v_{2}$.
+\end{ex}
+Pretende-se que: $v=a_{1} v_{1}+a_{2} v_{2}$, sendo $a_{1}$ e $a_{2}$ escalares a determinar. Então, devemos ter: $(-4,-18,7)=a_{1}(1,-3,2)+a_{2}(2,4,-1)=(a_{1}+2a_{2},-3a_{1}+4a_{2},2a_{1}-a_{2})$ logo 
+
+\begin{equation*}
+\begin{cases}
+a_{1}+2a_{2}=-4   \\
+-3a_{1}+4a_{2}=-18 \\
+2a_{1}-a_{2}=7 
+\end{cases}
+\end{equation*}
+Cuja solução do sistema de equações lineares anterior é $a_{1}=2$ e $a_{2}=-3$. Portanto, $v=2v_{1}-3v_{2}$.
+
+\begin{ex}
+Mostre que o subconjunto $W=\left\lbrace (x,y,0)\in \mathbb{R}^{3}: x,y\in \mathbb{R}\right\rbrace $ é gerado pelo conjunto $\left\lbrace (1,0,0), (0,1,0) \right\rbrace $ do $\mathbb{R}^{3}$.
+\end{ex}
+
+Seja $(x,y,0)\in W$ tal que $(x,y,0)=\alpha (1,0,0)+\beta(0,1,0)$, logo:
+\begin{equation*}
+\begin{cases}
+x=\alpha   \\
+y=\beta 
+\end{cases}
+\end{equation*}, então qualquer vetor $(x,y,0)\in W$ pode ser escrito como combinação linear de $\left\lbrace (1,0,0), (0,1,0) \right\rbrace $.
+\begin{ex}
+	Seja $V=\mathbb{R}^{3}$. Determine o subespaço gerado pelo vetor $v_{1}=(1,2,3)$.
+\end{ex}
+Temos $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: (x,y,z)=\alpha (1,2,3), \alpha \in \mathbb{R} \right\rbrace $ logo $(x,y,z)=\alpha (1,2,3)$, então $x=\alpha$, $y=2\alpha$ e $z=3\alpha$. Assim $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: y=2x \text{e} z=3x \right\rbrace $. onde $[v_{1}]$ é subespaço gerado de $v_{1}\in \mathbb{R}^{3}$ (particularmente é uma reta que passa pela origem).
+
+O subespaço gerado por um vetor $v_{1}\in \mathbb{R}^{3}$, $v_{1}\neq 0$ é uma reta que passa pela origem. Se a esse vetor acrescentamos $v_{2},v_{3},...$ todos colineares entre si, o subespaço gerado por $v_{2}, v_{3},...$ vetores continuará sendo a mesma reta: $[v_{1}]=[v_{1},v_{2}]=[v_{1},v_{2},v_{3}]=...$, por exemplo o vetor $(7,14,21)$ posso escrever como combinação linear de $(1,2,3)$ e $(2,4,6)$, ou seja, $(7,14,21)=1(1,2,3)+3(2,4,6)$.
+
+\begin{ex}
+	Determine o subespaço gerado pelo conjunto $A=\{(1,-2,-1),(2,1,1)\}$.
+\end{ex}
+Temos $[v_{1},v_{2}]=\left\lbrace (x,y,z)\in\mathbb{R}^{3} : (x,y,z)=\alpha (1,-2,-1)+\beta (2,1,1), \alpha, \beta \in \mathbb{R}\right\rbrace $. Da desigualdade acima, temos:
+\begin{equation*}
+\begin{cases}
+\alpha+2\beta=x   \\
+-2\alpha+\beta=y \\
+-\alpha+\beta=z 
+\end{cases}
+\end{equation*}, então 
+
+\begin{equation*}
+\begin{cases}
+\beta=\frac{x+z}{3}   \\
+\alpha=\frac{x-2z}{3} \\ 
+\end{cases}
+\end{equation*}
+Substituindo na equação $(II)$ do primeiro sistema de eqs. lineares temos: $x+3y-5z=0$.
+
+Logo, $[v_{1},v_{2}]=\left\lbrace(x,y,z)\in \mathbb{R}^{3}:x+3y-5z=0 \right\rbrace $ (FAZER O GRÁFICO)
+
+O subespaço gerado pelos vetores $v_{1}, v_{2}\in \mathbb{R}^{3}$, não colineares, é um plano $P$ que passa pela origem. Se esses dois vetores acrescentamos $v_{3},v_{4},...$ todos coplanares, ao subespaço gerado por $v_{3},v_{4},...$ vetores continuará sendo o mesmo plano $P$: $[v_{1},v_{2}]=[v_{1},v_{2},v_{3}]=[v_{1},v_{2},v_{3},v_{4}]=...$
+
+\subsection{Dependência e independência linear}
+
+\begin{df}
+	Seja $V$ um espaço vetorial e $v_{1},...,v_{n}\in V$. Dizemos que o conjunto $\{v_{1},...,v_{n}\}$ é linearmente independente (LI), ou que os vetores $v_{1},...,v_{n}$ são LI, se a equação:
+	\begin{equation*}
+	\alpha_{1}v_{1}+...+\alpha_{n}v_{n}=0
+	\end{equation*}
+	Implica $\alpha_{1}=...=\alpha_{n}=0$. No caso que exista algum $\alpha_{i} \neq 0$ dizemos que $\{v_{1},...,v_{n}\}$ é linearmente dependente (LD), ou que os vetores são $v_{1},...,v_{n}$ são LD. 
+\end{df}
+
+\begin{teo}
+	$\{v_{1},...,v_{n}\}$ é LD se, e somente se, um desses vetores for uma combinação linear dos outros.
+\end{teo}
+
+\begin{ex}
+No espaço vetorial $V=\mathbb{R}^{4}$, os vetores $v_{1}=(2,2,3,4)$, $v_{2}=(0,5,-3,1)$ e $v_{3}=(0,0,4,-2)$ são linearmente independentes?
+\end{ex}
+De fato: a partir de $a(2,2,3,4)+b(0,5,-3,1)+c(0,0,4,-2)=(0,0,0,0)$ temos: $(2a,2a+5b,3a-3b+4c,4a+b-2c)=(0,0,0,0)$, isto é, 
+\begin{equation*}
+\begin{cases}
+2a=0   \\
+2a+5b=0 \\
+3a-3b+4c=0\\
+4a+b-2c=0 
+\end{cases}
+\end{equation*}
+
+O sistema admite unicamente a solução $a=0$, $b=0$ e $c=0$.
+
+\begin{ex}
+	No espaço vetorial $V=\mathbb{R}^{3}$, os vetores $v_{1}=(2,-1,3)$, $v_{2}=(-1,0,-2)$ e $v_{3}=(2,-3,1)$ forman um conjunto LI? (TAREFA !!!!)
+\end{ex}
+
+\subsection{Base de um espaço vetorial}
+
+Agora estamos interessados em encontrar, dentro de um espaço vetorial $V$, um conjunto finito de vetores, tais que qualquer outro vetor $V$ seja uma combinação linear deles. Denominaremos um conjunto de vetores desse tipo de base.
+
+\begin{df}
+	Um conjunto de vetores de $V$ será uma base se:
+	\item[i.] $\{v_{1},...,v_{n}\}$ é LI
+	\item[ii.] $[v_{1},...,v_{n}]=V$
+\end{df}
+
+\begin{ex}
+	\item[\textbf{a}.] Se $V=\mathbb{R}^{2}$ e sejam $e_{1}=(1,0)$, $e_{2}=(0,1)$. O conjunto $\left\lbrace e_{1}, e_{2}\right\rbrace$ é uma base de $V$, conhecida como base canônica de $\mathbb{R}^{2}$.
+	\item[\textbf{b}.] O conjunto $\{(1,1),(0,1)\}$ também é uma base de $V=\mathbb{R}^{2}$. 
+	
+	De fato: Se $(0,0)=a(1,1)+b(0,1)$, então $a=0$ e $b=0$. Isto é, $\{(1,1),(0,1)\}$ é LI. E ainda $[(1,1),(0,1)]=V$ pois dado $v=(x,y)\in V$, temos $(x,y)=x(1,1)+(y-x)(0,1)$. 
+	
+	Ou seja todo vetor de $V$ é combinação linear dos vetores $\{(1,1),(0,1)\}$.
+	\item[\textbf{c}.] O conjunto $\{(0,1),(0,2)\}$ não é uma base $\mathbb{R}^{2}$, pois é um conjunto $LD$. Se $(0,0)=a(0,1)+b(0,2)$, $a=-2b$ logo $a$ e $b$ são necessariamente zero. 
+	\item[\textbf{d}.] O conjunto $\{(1,0,0),(0,1,0)\}$ não é base de $\mathbb{R}^{3}$ mesmo sendo LI, já que não gera tudo o $\mathbb{R}^{3}$, isto é, $\left[ (1,0,0),(0,1,0)\right] \neq \mathbb{R}^{3}$. 
+\end{ex}
+\begin{teo}
+Sejam $v_{1},...,v_{n}$ vetores não nulos que geram um espaço vetorial $V$. Então, dentre estes vetores podemos extrair uma base de $V$.	
+\end{teo}
+
+\begin{teo}
+	Seja um espaço vetorial $V$ gerado por um conjunto finitos de vetores $\{v_{1},...,v_{n}\}$. Então, qualquer conjunto de mais de $n$ vetores em $V$ é necessariamente $LD$ (e portanto, qualquer conjunto LI tem no máximo n vetores).	
+\end{teo}
+\underline{\textit{\textbf{Note-se}}}. Se o espaço vetorial $V$ admite uma base $\{v_{1},...,v_{n}\}$ com $n$ elementos, qualquer outra base de $V$ possui $n$ elementos. Concluímos, portanto, que qualquer base de um espaço vetorial tem sempre o mesmo número de elementos. Este número é chamado dimensão de $V$, e é denotado $dim(V)$.
+\begin{ex}
+Se $V=\mathbb{R}^{2}$, os conjuntos $\{(1,0),(0,1)\}$ e $\{(1,1),(0,1)\}$ são bases de $V$, então $dim(V)=2$.
+\end{ex}
+\begin{ex}
+	Se $V=M(2,2)$, uma base tem 4 elementos, então $dim(V)=4$.
+\end{ex} 
+\begin{teo}
+	Qualquer conjunto de vetores LI de um espaço vetorial $V$ de dimensão finita pode ser completado de modo a formar uma base em $V$ (por exemplo, $\{(1,0,0),(0,1,0)\}$ é LI logo $\{(1,0,0),(0,1,0),(0,0,1)\}$ é base de $\mathbb{R}^{3}$).	
+\end{teo}
+\underline{\textit{\textbf{Note-se}}}. Se $dim(V)=n$, qualquer conjunto de $n$ vetores LI formará uma base de $V$.
+\begin{teo}
+	Se $U$ e $W$ são subespaços de um espaço vetorial $V$ que tem dimensão finita, então $dim(U)\leqslant dim(V)$ e $dim(W)\leqslant dim(V)$. Além disso,
+	
+	 \begin{center}
+	 	$dim(U+W)=dim(U)+dim(W)-dim(U\cap W)$
+	 \end{center}
+	
+\end{teo}
+\begin{teo}
+	Dada uma base $\{v_{1},...,v_{n}\}$ de $V$, cada vetor de $V$ é escrito de maneira única como combinação linear de $v_{1},...,v_{n}$.
+\end{teo}
+\begin{df}
+	Sejam $\beta=\{v_{1},...,v_{n}\}$ base de $V$ e $v\in V$ onde $v=a_{1}v_{1}+...+a_{n}v_{n}$. Chamamos estes números $a_{1},...,a_{n}$ de coordenadas de $v$ em relação a base $\beta$ e denotamos por:
+	
+	\begin{center}
+		$[v]_{\beta}=\begin{bmatrix}
+		a_{1}\\
+		...\\
+		a_{n}
+	\end{bmatrix}$
+	\end{center}
+	  
+\end{df}
+\begin{ex}
+	Calcule as coordenadas do vetor $(4,3)$ nas bases $\beta=\{(1,0),(0,1)\}$ e $\beta^{'}=\{(1,1),(0,1)\}$.
+\end{ex}
+O coordenadas do vetor $(4,3)=4(1,0)+3(0,1)$ na base $\beta$ são $4$ e $3$, ou seja, 
+\begin{center}
+	$[v]_{\beta}=\begin{bmatrix}
+	4\\
+	3
+	\end{bmatrix}$
+\end{center} 
+O coordenadas do vetor $(4,3)=4(1,1)-1(0,1)$ na base $\beta^{'}$ são $4$ e $-1$, ou seja, 
+\begin{center}
+	$[v]_{\beta^{'}}=\begin{bmatrix}
+	4\\
+	-1
+	\end{bmatrix}$
+\end{center} 
+\underline{\textit{\textbf{Note-se}}}. Que a ordem dos elementos de uma base também influi na matriz das coordenadas de um vetor em relação a base. Isto é,
+
+$\beta_{1}=\{(1,0),(0,1)\}$ e $\beta_{2}=\{(0,1),(1,0)\}$, então 
+ \begin{center}
+	$[v]_{\beta_{1}}=\begin{bmatrix}
+	4\\
+	3
+	\end{bmatrix}$ \quad\quad \text{e}\quad\quad 
+		$[v]_{\beta_{1}}=\begin{bmatrix}
+	3\\
+	4
+	\end{bmatrix}$
+\end{center}, respectivamente.
+\begin{ex}
+Considere $U=\left\lbrace (x,y,z): x+y-z=0 \right\rbrace $ e $W=\left\lbrace (x,y,z):x=y \right\rbrace $. Determine $U+W$
+\end{ex}
+Observe que $U=[(1,0,1),(0,1,1)]$ e $W=[(1,1,0),(0,0,1)]$, então \\
+$V+W=[(1,0,1),(0,1,1),(1,1,0),(0,0,1)]$ como $(x,y,z)\in \mathbb{R}^{3}$, podemos escrever\\ $(x,y,z)=\alpha(1,0,1)+\beta(0,1,1)+\gamma(1,1,0)+\theta(0,0,1)$ com\\ $\alpha=x$, $\beta=y$, $\gamma=0$ e $\theta=z-x-y$. Portanto, $U+W=\mathbb{R}^{3}$. 
+
+Logo $dim(U+W)=dim(\mathbb{R}^{3})=dim(U)+dim(W)-dim(U\cup W)$ e temos que $dim(U\cap W)=1$ já que $V\cap W=\left\lbrace (x,y,z): x+y-z=0 e x=y \right\rbrace=\left\lbrace (x,y,z): x=y=\frac{z}{2} \right\rbrace =[(1,1,1/2)]$.
+
+\begin{ex}
+Prove que os polinômios seguintes são LI $p(x)=x^{3}-5x^{2}+1$, $q(x)=2x^{4}+5x-6$ e $r(x)=x^{2}-5x+2$.
+\end{ex}
+
+\begin{ex}
+	Exiba uma base para cada um dos subespaços de $\mathbb{R}^{4}$ listados a seguir:\\
+	
+	$F=\left\lbrace(x_{1},x_{2},x_{3},x_{4}): x_{1}=x_{2}=x_{3}=x_{4} \right\rbrace $\\
+	$G=\left\lbrace(x_{1},x_{2},x_{3},x_{4}): x_{1}=x_{2}, x_{3}=x_{4} \right\rbrace $\\
+	$H=\left\lbrace(x_{1},x_{2},x_{3},x_{4}): x_{1}=x_{2}=x_{3} \right\rbrace $\\
+	$K=\left\lbrace(x_{1},x_{2},x_{3},x_{4}): x_{1}+x_{2}+x_{3}+x_{4}=0 \right\rbrace $\\
+	
+\end{ex}
+\begin{ex}
+	Mostre que os polinômios 1, $x-1$ e $x^{2}-3x+1$ formam uma base de $P_{2}$. Exprima os polinômio $2x^{2}-5x+6$ como combinação linear dos elementos dessa base.
+\end{ex}
+\begin{ex}
+	Dados $u=(1,2)$ e $v=(-1,2)$, sejam $F_{1}$ e $F_{2}$ respectivamente as retas que passam pela origem em $\mathbb{R}^{2}$ e contem  $u$ e $v$. Mostre que $\mathbb{R}^{2}=F_{1}\oplus F_{2}$.
+\end{ex}
+
+\end{document}

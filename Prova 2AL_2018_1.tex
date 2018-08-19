@@ -1,0 +1,163 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{framed}
+\usepackage{booktabs}
+
+\usepackage{float}
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{graphicx}
+\graphicspath{{./Figuras/}}    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Federal de Pernambuco}
+\newcommand{\centro}{Centro Acadêmico do Agreste}
+\newcommand{\departamento}{Núcleo de Tecnologia}
+\newcommand{\curso}{Engenharia Civil}
+\newcommand{\professor}{Fernando R. L. Contreras}
+\newcommand{\disciplina}{Algebra Linear}
+%ATE AQUI !!!
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{-50pt}
+	 	
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+		\curso
+		\par
+		\vspace{0pt}
+		\text{Prova 2 - Algebra Linear}\\
+		\text{Prof. Fernando R. L. Contreras}	
+	\end{center}
+
+	\begin{flushleft}
+		\textbf{Aluno(a)}:
+	\end{flushleft}
+	
+\begin{itemize}
+\item[1.] Seja $V$ um espaço euclidiano. Demostrar que a função $N:V\rightarrow \mathbb{R}$ definida por $N(u)=<u,u>$. Verifica que:
+\begin{itemize}
+	\item $N(u+v)-N(u)-N(v)=2<u,v>$.
+	\item $\frac{1}{4}N(u+v)-\frac{1}{4}N(u-v)=<u,v>$.
+\end{itemize}
+\end{itemize}
+\begin{itemize}
+\item[2.]  Mostre que $A=\begin{bmatrix}
+1    & 2 \\
+3    & 2
+\end{bmatrix}$ é semelhante à matriz $B=\begin{bmatrix}
+4    & 0 \\
+0    & -1
+\end{bmatrix}$.
+ \end{itemize}
+ \begin{itemize}
+\item [3.] Consideremos o $\mathbb{R}^{4}$ munido do produto interno usual e seja $W=\{(x,y,z,t)\in \mathbb{R}^{4}|\quad x+y=0 \quad\text{e}\quad 2x-y+z=0\}$. Determine uma base ortonormal de $W$ e uma base ortonormal de $W^{\bot}$.
+\end{itemize}
+\begin{itemize}
+\item[4.]. Dada a matriz $A=\begin{bmatrix}
+a    & 0 & 0 \\
+0    & b & c \\
+0    & c & b
+\end{bmatrix}$. Verifique que os autovalores são: $a$, $b+c$ e $b-c$. E ache uma base de autovetores.
+
+\end{itemize}
+\begin{itemize}
+	\item[Opcional]. Forneça uma base distinto da base canônica em $\mathbb{R}^{2}$, e obtenha uma base ortogonal utilizando o processo de ortogonalização de Gram-Schmdit.
+	
+\end{itemize}
+%\newpage
+	\flushbottom
+	\flushright
+    
+  \vspace{5pt}
+  
+     \begin{center}
+     	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+     	\vspace{0pt}
+     	
+     	\universidade
+     	\par
+     	\centro
+     	\par
+     	\departamento
+     	\par
+     	\curso
+     	\par
+     	\vspace{0pt}
+     	\text{Prova 2 - Algebra Linear}\\
+     	\text{Prof. Fernando R. L. Contreras}	
+     \end{center}
+     
+     \begin{flushleft}
+     	\textbf{Aluno(a)}:
+     \end{flushleft}
+ 
+ \begin{itemize}
+ 	\item[1.] Seja $V$ um espaço euclidiano. Demostrar que a função $N:V\rightarrow \mathbb{R}$ definida por $N(u)=<u,u>$. Verifica que:
+ 	\begin{itemize}
+ 		\item $N(u+v)-N(u)-N(v)=2<u,v>$.
+ 		\item $\frac{1}{4}N(u+v)-\frac{1}{4}N(u-v)=<u,v>$.
+ 	\end{itemize}
+ \end{itemize}
+ \begin{itemize}
+ 	\item[2.]  Mostre que $A=\begin{bmatrix}
+ 	1    & 2 \\
+ 	3    & 2
+ 	\end{bmatrix}$ é semelhante à matriz $B=\begin{bmatrix}
+ 	4    & 0 \\
+ 	0    & -1
+ 	\end{bmatrix}$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item [3.] Consideremos o $\mathbb{R}^{4}$ munido do produto interno usual e seja $W=\{(x,y,z,t)\in \mathbb{R}^{4}|\quad x+y=0 \quad\text{e}\quad 2x-y+z=0\}$. Determine uma base ortonormal de $W$ e uma base ortonormal de $W^{\bot}$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[4.]. Dada a matriz $A=\begin{bmatrix}
+ 	a    & 0 & 0 \\
+ 	0    & b & c \\
+ 	0    & c & b
+ 	\end{bmatrix}$. Verifique que os autovalores são: $a$, $b+c$ e $b-c$. E ache uma base de autovetores.
+ 	
+ \end{itemize}
+\begin{itemize}
+	\item[Opcional]. Forneça uma base distinto da base canônica em $\mathbb{R}^{2}$, e obtenha uma base ortogonal utilizando o processo de ortogonalização de Gram-Schmdit.
+	
+\end{itemize}	
+\flushbottom
+\flushright
+
+\end{document}
+

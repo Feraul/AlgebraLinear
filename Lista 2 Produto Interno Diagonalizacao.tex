@@ -1,0 +1,265 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Option test file, will be created during the first LaTeX run:
+\begin{filecontents}{exercise.thm}
+\def\th@exercise{%
+  \normalfont % body font
+  \thm@headpunct{:}%
+}
+\end{filecontents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,openright,oneside,a4paper,english,french,spanish,brazil]{article}
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			  % Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		  % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	      % Codificacao do documento (conversão automática dos acentos)
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{latexsym}
+\usepackage{makeidx}            % para definir o índice
+\usepackage{epsfig}             % para introduzir figuras no formato eps
+\usepackage{graphicx,color}     % permite a inclusao de figuras
+\usepackage{verbatim}
+\usepackage{gensymb}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\Large#1\end{center}
+	\vskip0.5em}%
+}
+
+
+
+\newtheorem{df}{Definição}
+\newtheorem{ex}{Exemplo}
+\newtheorem{teo}{Teorema}
+
+\newtheoremstyle{note}% name
+  {3pt}%      Space above
+  {3pt}%      Space below
+  {}%         Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\itshape}% Thm head font
+  {:}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{note}
+\newtheorem{note}{Note}
+
+\newtheoremstyle{citing}% name
+  {3pt}%      Space above, empty = `usual value'
+  {3pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {\thmnote{#3}}% Thm head spec
+
+\theoremstyle{citing}
+\newtheorem*{varthm}{}% all text supplied in the note
+
+\newtheoremstyle{break}% name
+  {9pt}%      Space above, empty = `usual value'
+  {9pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+
+\theoremstyle{break}
+\newtheorem{bthm}{B-Theorem}
+
+\theoremstyle{exercise}
+\newtheorem{exer}{Exercise}
+
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{thmsw}{Theorem}[section]
+%\newtheorem{corsw}[thm]{Corollary}
+\newtheorem{propsw}{Proposition}
+%\newtheorem{lemsw}[thm]{Lemma}
+
+%    Because the amsmath pkg is not used, we need to define a couple of
+%    commands in more primitive terms.
+\let\lvert=|\let\rvert=|
+\newcommand{\Ric}{\mathop{\mathrm{Ric}}\nolimits}
+
+%    Dispel annoying problem of slightly overlong lines:
+\addtolength{\textwidth}{8pt}
+
+\title{ \textbf{Notas de Aula}}
+\subtitle{\textbf{Álgebra Linear}}
+\author{\textbf{Fernando Contreras}\\
+	\large Nucleo de Tecnologia\\
+	Universidade Federal de Pernambuco (UFPE)}
+
+
+
+\begin{document}
+	\begin{center}
+		Universidade Federal de Pernambuco (UFPE)\\
+		Centro Acadêmico do Agreste\\
+		Núcleo de Tecnologia\\
+		
+		Lista 3 de Álgebra Linear\\
+		Prof. Fernando RL Contreras
+	\end{center}
+
+
+Sejam os seguintes problemas
+
+\begin{itemize}
+	\item[1.] Sendo $u=(x_{1},x_{2})$ e $v=(y_{1},y_{2})$ são vetores genéricos do $\mathbb{R}^{2}$, definamos $<u,v>=\frac{x_{1}y_{1}}{a^{2}}+\frac{x_{2}y_{2}}{b^{2}}$ com $a,b\in \mathbb{R}$ fixos e não nulos. Provar que $<u,v>$ define um produto interno sobre $\mathbb{R}^{2}$.
+	%Exer 6, pag. 161, Caliolli 
+\end{itemize}
+\begin{itemize}
+	\item[2.] Em $P_{2}(\mathbb{R})$ com produto interno dado por $<f(t),g(t)>=\int_{0}^{1}dt$ calcule a norma de $f(t)$ nos seguintes casos:
+	\begin{itemize}
+		\item $f(t)=t$.
+		\item $f(t)=-t^{2}+1$.
+	\end{itemize}
+\end{itemize}
+% Exer 8, pag. 162 Caliolli
+\begin{itemize}
+	\item [3.] Em $P_{2}(\mathbb{R})$ com o produto interno definido por: $<f(t),g(t)>=\int_{0}^{1}f(t)g(t)dt$ 
+	\begin{itemize}
+		\item Ortonormalize a base $\{1,1+t,2t^{2}\}$.
+		\item Ache o complemento ortogonal do sub-espaço $W=[5,1+t]$
+	\end{itemize}
+% Exer 7, pag. 185 Caliolli
+\end{itemize}
+\begin{itemize}
+	\item[4.] Sejam $U$ e $V$ sub-espaços vetoriais de um espaço euclidiano de dimensão finita. Prove que  $(U\cap V)^{\bot}=U^{\bot}+V^{\bot}$.
+% Exer 15, pag. 185 Caliolli
+\end{itemize}
+\begin{itemize}
+	\item[5.] Consideremos o $\mathbb{R}^{4}$ munido do produto interno usual e seja $W=\{(x,y,z,t)\in \mathbb{R}^{4}|\quad x+y=0 \quad\text{e}\quad 2x-y+z=0\}$. Determine uma base ortonormal de $W$ e uma base ortonormal de $W^{\bot}$.
+% Exer 8, pag. 185 Caliolli	
+\end{itemize}
+
+\begin{itemize}
+	\item[6.] Considere a seguinte transformação linear do $\mathbb{R}^{3}$ no $\mathbb{R}^{2}$: $F(x,y,z)=(x-y-z,2z-x)$. Determine uma base ortonormal de $Ker(F)$ em relação ao produto interno usual.
+% Exer 5, pag. 184 Caliolli		
+\end{itemize}
+\begin{itemize}
+	\item[7.] Achar a projeção ortogonal de $(1,1,1,1)\in\mathbb{R}^{4}$ sobre o subespaço $W=[(1,1,0,0),(0,0,1,1)]$, usando o produto interno usual do $\mathbb{R}^{4}$.
+% Exer 18, pag. 181 Caliolli		
+\end{itemize}
+\begin{itemize}
+	\item[8.]  Seja $V$ um espaço euclidiano. Demostrar que a função $N:V\rightarrow \mathbb{R}$ definida por $N(u)=<u,u>$. Verifica que:
+	\begin{itemize}
+		\item $N(\alpha u)=\alpha^{2}N(u)$.
+		\item $N(u+v)-N(u)-N(v)=2<u,v>$.
+		\item $\frac{1}{4}N(u+v)-\frac{1}{4}N(u-v)=<u,v>$.
+	\end{itemize}
+%Exer 7-35, pag. 258, Armando Rojo 
+\end{itemize}
+\begin{itemize}
+	\item[9.] Considere o subespaço $W$ de $\mathbb{R}^{3}$ gerado por $v_{1}=(1,0,0)$, $v_{2}=(0,1,1)$ e $v_{3}=(1,-1,-1)$. Sendo $<,>$ o produto interno usual (a) Ache $W^{\bot}$; (b) Exiba uma transformação linear $T:\mathbb{R}^{3}\rightarrow\mathbb{R}^{3}$ tal que $Im(T)=W$ e $Ker(T)=W^{\bot}$.
+	% Exer 10, pag. 248 Boldrini 
+\end{itemize}
+\begin{itemize}
+	\item[10.]Podemos definir uma "distancia" entre dois ponto $P=(x_{1},y_{1})$ e $Q=(x_{2},y_{2})$ do plano por $d(P,Q)=|x_{2}-x_{1}|+|y_{2}-y_{1}|$. Verifique se a aplicação dada por $<(x_{1},y_{1}),(x_{2},y_{2})>=d(P,Q)$ define um produto interno no plano.
+	%Exer 17 pag. 249  Boldrini
+\end{itemize}
+\begin{itemize}
+	\item[11.] Seja $E$ um espaço vetorial com produto interno. Prove que para quaisquer $u,v\in E$, tem-se $| \left\| u \right\| - \left\| v \right\| | \leq \left\| u-v \right\| $.
+	% Exer 10.31, pag. 136 Elon Lages 
+\end{itemize}
+\begin{itemize}
+	\item [12.] Seja $<,>$ um produto interno no espaço vetorial $F$. Dado um isomorfismo $A: E\rightarrow F$, ponha $[u,v]=<A(u),A(v)>$ para quaisquer $u,v \in E$. Prove que $[,]$ é um produto interno em $E$.
+	% Exer 10.19, pag. 134 Elon Lages 
+\end{itemize}
+
+
+
+
+\begin{itemize}
+	\item [13.] Seja $A=\begin{bmatrix}
+	3    & -2  \\
+	-1     & 2  
+	\end{bmatrix}$ e $P(X)=X^{2}-1$. Diagonalizar $P(A)$, se possível.
+\end{itemize}
+\begin{itemize}
+	\item [14.] Seja $T:V \longrightarrow V $ a) Se $\lambda=0$ é autovalor de $T$, mostre que $T$ não é injetora. b) A reciproca é verdadeira? Ou seja, se $T$ não é injetora, $\lambda=0$ é autovalor de $T$.
+	% Exerc 25 pag 196 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [15.] Seja $A=\begin{bmatrix}
+	0    & 2  \\
+	1    & 1  
+	\end{bmatrix}$ a) Ache os autovalores de $A$ e $A^{-1}$. b) Quais são os autovetores correspondentes?
+	% Exerc 22 pag 196 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [16.] Suponha que $v\in V$ seja autovetor de $T:V \longrightarrow V  $e $S:V \longrightarrow V $, ao mesmo tempo com autovalores $\lambda_{1}$ e $\lambda_{2}$ respectivamente. Ache os autovalores e autovetores de a) $S+T$ e b) $S\circ T$.
+		% Exerc 24 pag 196 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [17.] Ache os autovalores e autovetores correspondentes das transformações lineares dadas:
+	 \begin{itemize}
+	 	\item $T:P_{2}\rightarrow P_{2}$ tal que $ T(ax^{2}+bx+c)=ax^{2}+cx+b$.
+	 	\item $T:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ tal que $ T(x,y,z,w)=(x,x+y,x+y+z,x+y+z+w)$.
+	 \end{itemize}
+ 	% Exerc 5 e 7 pag 195 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [18.] Diz-se que um operador linear $T: V \rightarrow V$ é idempotente se $T^{2}=T$ (isto é, se $T\circ T(v)=T(v)$ para todo $v\in V$). a) Seja $T$ idenpotente. Ache seus autovalores. b) Mostre que um operador linear idenpotente é diagonalizável. 
+	% Exerc 5 e 7 pag 195 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [19.] Seja $A$ matriz $3X3$ triangular superior, com todos os seus elementos acima da diagonal distintos e não nulos.
+	$A=\begin{bmatrix}
+	a    & b & c \\
+	0    & d &e \\
+	0    & 0 & f
+	\end{bmatrix}$ Quais são os autovalores e autovetores de $A$?.
+	% Exerc 4 pag 213 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [20.] Mostre que $A=\begin{bmatrix}
+	1    & 2 \\
+	3    & 2
+	\end{bmatrix}$ é semelhante à matriz $B=\begin{bmatrix}
+	4    & 0 \\
+	0    & -1
+	\end{bmatrix}$.
+	% Exerc 8 pag 214 Boldrini
+\end{itemize}
+\begin{itemize}
+	\item [21.] Utilize a forma diagonal para encontrar $A^{n}$ no seguinte caso  $A=\begin{bmatrix}
+	-3    & 4 \\
+	-1    & 2
+	\end{bmatrix}$.
+	% Exerc 14 pag 215 Boldrini
+\end{itemize}
+\end{document}

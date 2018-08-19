@@ -1,0 +1,246 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Option test file, will be created during the first LaTeX run:
+\begin{filecontents}{exercise.thm}
+\def\th@exercise{%
+  \normalfont % body font
+  \thm@headpunct{:}%
+}
+\end{filecontents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,openright,oneside,a4paper,english,french,spanish,brazil]{article}
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			  % Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		  % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	      % Codificacao do documento (conversão automática dos acentos)
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{latexsym}
+\usepackage{makeidx}            % para definir o índice
+\usepackage{epsfig}             % para introduzir figuras no formato eps
+\usepackage{graphicx,color}     % permite a inclusao de figuras
+\usepackage{verbatim}
+\usepackage{gensymb}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\Large#1\end{center}
+	\vskip0.5em}%
+}
+
+
+
+\newtheorem{df}{Definição}
+\newtheorem{ex}{Exemplo}
+\newtheorem{teo}{Teorema}
+
+\newtheoremstyle{note}% name
+  {3pt}%      Space above
+  {3pt}%      Space below
+  {}%         Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\itshape}% Thm head font
+  {:}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{note}
+\newtheorem{note}{Note}
+
+\newtheoremstyle{citing}% name
+  {3pt}%      Space above, empty = `usual value'
+  {3pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {\thmnote{#3}}% Thm head spec
+
+\theoremstyle{citing}
+\newtheorem*{varthm}{}% all text supplied in the note
+
+\newtheoremstyle{break}% name
+  {9pt}%      Space above, empty = `usual value'
+  {9pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+
+\theoremstyle{break}
+\newtheorem{bthm}{B-Theorem}
+
+\theoremstyle{exercise}
+\newtheorem{exer}{Exercise}
+
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{thmsw}{Theorem}[section]
+%\newtheorem{corsw}[thm]{Corollary}
+\newtheorem{propsw}{Proposition}
+%\newtheorem{lemsw}[thm]{Lemma}
+
+%    Because the amsmath pkg is not used, we need to define a couple of
+%    commands in more primitive terms.
+\let\lvert=|\let\rvert=|
+\newcommand{\Ric}{\mathop{\mathrm{Ric}}\nolimits}
+
+%    Dispel annoying problem of slightly overlong lines:
+\addtolength{\textwidth}{8pt}
+
+\title{ \textbf{Notas de Aula}}
+\subtitle{\textbf{Álgebra Linear}}
+\author{\textbf{Fernando Contreras}\\
+	\large Nucleo de Tecnologia\\
+	Universidade Federal de Pernambuco (UFPE)}
+
+
+
+\begin{document}
+	\begin{center}
+		Universidade Federal de Pernambuco (UFPE)\\
+		Centro Acadêmico do Agreste\\
+		Núcleo de Tecnologia\\
+		
+		Lista 1 de Álgebra Linear\\
+		Prof. Fernando RL Contreras
+	\end{center}
+
+
+Sejam os seguintes problemas
+
+\begin{itemize}
+	\item[1.] Sejam $V=\mathbb{R}^{2}$ e o corpo $\mathbb{R}$. Determine se as seguintes operações definem sobre $V$uma estrutura de espaço vetorial.
+	$(a,b)+(a_{1},b_{1})=(0.5a+0.5a_{1},0.5b+0.5b_{1})$ e $\alpha(a,b)=(\alpha a, \alpha b)$ 
+\end{itemize}
+\begin{itemize}
+	\item[2.] considerando $V=\mathbb{R}$, ou seja, o conjunto de funções reais com variável real, investigar se $V$ são espaços vetoriais:
+	\begin{itemize}
+		\item O conjunto de funções pares, ou seja, as funções $f\in \mathbb{R}$ tais que $f(x)=f(-x)$.
+		\item O conjunto de funções impares, ou seja, as funções $f\in \mathbb{R}$ tais que $f(x)=-f(-x)$.
+	\end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item [3.] Considerando o espaço vetorial $(\mathbb{R}^{3},+,\cdot, \mathbb{R})$, investigar se o seguintes conjuntos são subespaços de $\mathbb{R}^{3}$
+	\begin{itemize}
+		\item $S=\left\lbrace (a_{1}, a_{2},a_{3})\in \mathbb{R}^{3} / a_{1}+a_{3}=0 \right\rbrace $.
+		\item $S=\left\lbrace (a_{1}, a_{2},a_{3})\in \mathbb{R}^{3} / \left| a_{1}\right| =\left| a_{2}\right| \right\rbrace $.
+		\item $S=\left\lbrace (a_{1}, a_{2},a_{3})\in \mathbb{R}^{3} / a_{3}= a_{1}+2\right\rbrace $.
+	\end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item[4.] Seja o espaço vetorial $(\mathbb{R}^{n},+,\cdot, \mathbb{R})$. Determinar se os seguintes conjuntos são subespaços de $\mathbb{R}^{n}$
+	\begin{itemize}
+	\item $S=\left\lbrace (a_{1}, a_{2},...,a_{n})\in \mathbb{R}^{n} / a_{n}\in\mathbb{Z}  \right\rbrace $.
+	\item $S=\left\lbrace (a_{1}, a_{2},...,a_{n})\in \mathbb{R}^{3} / \sum_{i=1}^{n}\alpha_{i}a_{i}=0 \right\rbrace $.
+\end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item[5.] Considere $[a,-a]$ um intervalo simétrico e $C^{1}[-a,a]$ o conjunto das funções reais definidas no intervalo $[-a,a]$ que possuem derivadas continuas no intervalo. Seja ainda os subconjuntos $V_{1}=\left\lbrace f(x)\in C^{1}[-a,a]| f(-x)=f(x) \right\rbrace $ e $V_{2}=\left\lbrace f(x)\in C^{1}[-a,a]| f(-x)=-f(x)\right\rbrace $. Mostre que $V1\oplus V2=C^{1}[-a,a]$.
+\end{itemize}
+
+\begin{itemize}
+	\item[6.] Mostre que os polinômios $1-t^{3}, (1-t)^{2},1-t$ e $1$ geram o espaço dos polinômios de grau $\leq$ 3.
+\end{itemize}
+\begin{itemize}
+	\item[7.] No espaço vetorial de funções reais definidas em $\mathbb{R}$, se consideram as funções $f,g$ e $h$, definidas por $f(t)=t^{2}+2t-1$, $g(t)=t^{2}+1$, $h(t)=t^{2}+t$, demostrar que são LI.
+	
+\end{itemize}
+\begin{itemize}
+	\item[8.]  Sejam $W_{1}=\left\lbrace (x,y,z)\in \mathbb{R}^{4}| x+y=0\quad e\quad z-t=0 \right\rbrace $ e $W_{2}=\left\lbrace (x,y,z)\in \mathbb{R}^{4}| x-y-z+t=0  \right\rbrace $ subespaços de $\mathbb{R}^{4}$ 
+	\begin{itemize}
+		\item Determine $W_{1}\cap W_{2}$.
+		\item Exiba uma base para $W_{1}\cap W_{2}$.
+		\item Determine $W_{1}+W_{2}$.
+		\item $W_{1}+W_{2}$ é direta? Justifique.
+	\end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item[9.] Seja $U$ subespaço gerado de $\mathbb{R}^{3}$, gerado por $(1,0,0)$ e $W$ o subespaço de $\mathbb{R}^{3}$, gerado por $(1,1,0)$ e $(0,1,1)$. Mostre que $\mathbb{R}^{3}=U\oplus W$. 
+\end{itemize}
+\begin{itemize}
+	\item[10.]Comprovar que os vetores de  $\mathbb{R}^{3}$, $v_{1}=(-1,3,1), v_{2}=(3,-1,1)$ e $v_{3}=(4,0,2)$ são LD e expressar a $v_{3}$ como combinação linear de $v_{1}$ e $v_{2}$. 
+\end{itemize}
+\begin{itemize}
+	\item[11.] Sabendo que $v_{1}$, $v_{2}$ e $v_{3}$ são vetores linearmente independentes do espaço vetorial V. Investigar a dependência ou independência linear dos seguintes vetores
+	 \begin{itemize}
+	 	\item $\left\lbrace v_{1}+av_{2}+bv_{3}, v_{2}+cv_{3},v_{3}\right\rbrace $
+	 	\item $\left\lbrace v_{1}, v_{2}+av_{3},v_{3}+bv_{2}\right\rbrace $
+	 \end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item [12.] Determinar o subespaço de $\mathbb{R}^{3}$ gerado pelos vetores $v_{1}=(1,-1,2)$, $v_{2}=(0,-1,1)$ e  $v_{3}=(1,1,0)$. obter uma base para aquele subespaço.
+\end{itemize}
+\begin{itemize}
+	\item [13.] Sejam $\beta=\left\lbrace (1,0),(0,1)\right\rbrace $, $\beta_{1}=\left\lbrace (-1,1),(1,1)\right\rbrace $, $\beta_{2}=\left\lbrace (\sqrt{3},1),(\sqrt{3},-1) \right\rbrace $ e $\beta_{3}=\left\lbrace (2,0),(0,2)\right\rbrace $ bases ordenadas de $\mathbb{R}^{2}$. Ache as matrizes de mudança de base: \textbf{(a)} $[I]^{\beta_{1}}_{\beta}$, \textbf{(b)} $[I]^{\beta}_{\beta_{1}}$, \textbf{(c)} $[I]^{\beta}_{\beta_{2}}$ e \textbf{(d)} $[I]^{\beta}_{\beta_{3}}$.
+	% exercicio 29 Boldrini EV
+\end{itemize}
+\begin{itemize}
+	\item [14.] Seja $T:\mathbb{R}^{2}\longrightarrow \mathbb{R}^{2}$ uma reflexão, através da reta $y=3x$. (a) Encontre $T(x,y)$ e (b) encontre a base $\alpha$ de $\mathbb{R}^{2}$, tal que $[T]^{\alpha}_{\alpha}=
+	\begin{bmatrix}
+	1     & 0  \\
+	0     & -1 
+	\end{bmatrix} $
+	% exercicio 25 Boldrini TL
+\end{itemize}
+\begin{itemize}
+	\item [15.] Considere a transformação linear $T:\mathbb{R}^{3}\longrightarrow \mathbb{R}^{3}$ dada por $T(x,y,z)=(z,x-y,-z)$. \textbf{(a)} Determine uma base do núcleo de $T$, \textbf{(b)} Dê a dimensão da imagem de $T$ e \textbf{(c)} $T$ é sobrejetora ?.
+		% exercicio 19 Boldrini TL 
+\end{itemize}
+\begin{itemize}
+	\item [16.] Sejam $\alpha=\left\lbrace (1,-1),(0,2)\right\rbrace $ e $\beta=\left\rbrace (1,0,-1), (0,1,2), (1,2,0) \right\rbrace $ bases de $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$ respectivamente e $[T]^{\alpha}_{\beta}=
+	\begin{bmatrix}
+	1     & 0  \\
+	1     & 1  \\
+	0     & -1 
+	\end{bmatrix} $. \textbf{(a)} Ache $T$ e \textbf{(b)} se $S(x,y)=(2y,x-y,x)$, ache $[S]^{\alpha}_{\beta}$.
+	% exercicio 11 Boldrini TL 
+\end{itemize}
+\begin{itemize}
+	\item [17.] Se $R(x,y)=(2x,x-y,y)$ e $S(x,y,z)=(y-z,z-x)$. Ache $[R\circ S]$ e $[S \circ R]$ 
+	% exercicio 13 Boldrini TL 
+\end{itemize}
+\begin{itemize}
+	\item [18.] Seja $T:\mathbb{R}^{2}\longrightarrow \mathbb{R}^{2}$ tal que $[T]=\begin{bmatrix}
+	-1     & -2  \\
+	 0     & 1  
+	\end{bmatrix}$. Ache os vetores $u$ e $v$ tal que \textbf{(a)} $T(u)=u$ e \textbf{(b)} $T(v)=-v$
+	% exercicio 15 Boldrini TL pag. 173
+\end{itemize}
+\begin{itemize}
+	\item [19.] Dados $T:U\longrightarrow V$ linear e injetora e $u_{1}, u_{2},..., u_{n}$, vetores LI em $U$, mostre que $\left\lbrace T(u_{1}), T(u_{2}),...,T(u_{n}) \right\rbrace $ é LI
+	% exercicio 9 Boldrini TL pag. 172
+\end{itemize}
+\begin{itemize}
+	\item [20.] Seja $T:V\longrightarrow W$ uma função. mostre que: \textbf{(a)} Se $T$ é uma transformação linear, então $T(\textbf{0})=\textbf{0}$. \textbf{(b)} Se $T(\textbf{0})\neq \textbf{0}$, então $T$ não é transformação linear.
+\end{itemize}
+
+\end{document}

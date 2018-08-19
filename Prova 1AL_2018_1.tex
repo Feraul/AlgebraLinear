@@ -1,0 +1,143 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{framed}
+\usepackage{booktabs}
+
+\usepackage{float}
+\usepackage{color}				  % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 		      % para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+
+\usepackage[mathcal]{eucal}
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{undertilde}            % botar tilde embaixo da letra
+\usepackage{mathptmx}          % fonte
+\usepackage{graphicx}
+\graphicspath{{./Figuras/}}    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Federal de Pernambuco}
+\newcommand{\centro}{Centro Acadêmico do Agreste}
+\newcommand{\departamento}{Núcleo de Tecnologia}
+\newcommand{\curso}{Engenharia Civil}
+\newcommand{\professor}{Fernando R. L. Contreras}
+\newcommand{\disciplina}{Algebra Linear}
+%ATE AQUI !!!
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{0pt}
+	 	
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+		\curso
+		\par
+		\vspace{08pt}
+		\text{Prova 1 - Algebra Linear}\\
+		\text{Prof. Fernando R. L. Contreras}	
+	\end{center}
+	
+	%\vspace{0.5pt}
+	
+	\begin{flushleft}
+		\textbf{Aluno(a)}:
+	\end{flushleft}
+	
+\begin{itemize}
+\item[1.]  Seja $T:P_{3}\longrightarrow P_{3} $ tal que $T(f)=f''$ para todo $f\in P_{3}$. Mostre que $T$ é transformação linear e determine uma base para $Ker(T)$.
+\end{itemize}
+\begin{itemize}
+\item[2.] Sejam $\alpha=\left\lbrace (1,-1),(0,2) \right\rbrace $ e $\beta=\left\lbrace (1,0,-1),(0,1,2), (1,2,0)\right\rbrace $ bases de $\mathbb{R}^{2} $ e $\mathbb{R}^{3}$ respectivamente e\\ $[T]^{\alpha}_{\beta}=\begin{bmatrix}
+	1       & 0 \\
+	1       & 1 \\
+	0       & -1
+\end{bmatrix}$. (a) Ache $T$ e (b) Se $S(x,y)=(2y,x-y,x)$, ache $[S]^{\alpha}_{\beta}$
+ \end{itemize}
+ \begin{itemize}
+\item [3.] Dados os subespaços de $\mathbb{R}^{4}$, $S_{1}=\left\lbrace (x_{1},x_{2},x_{3},x_{4}) / x_{1}+x_{2}-x_{3}+x_{4}=0 \right\rbrace $ e\\ $S_{2}=\left\lbrace (x_{1},x_{2},x_{3},x_{4}) / x_{1}-x_{2}-x_{3}-x_{4}=0 \right\rbrace $. Obter a dimensão de $S_{1}+S_{2}$.
+\end{itemize}
+\begin{itemize}
+\item[4.]. No conjunto $V$ definamos a "\textit{adição}" como fazemos habitualmente no $ \mathbb{R}^{2}$ e multiplicação por escalares assim: $\alpha (x,y)=(ax,0)$. É então $V$ um espaço vetorial sobre $ \mathbb{R}$? Por que ?
+
+\end{itemize}
+\begin{itemize}
+	\item[Opcional]. Defina a Soma Direta de dois subespaços vetoriais do espaço vetorial $V$.
+	
+\end{itemize}
+	\flushbottom
+	\flushright
+    
+  \vspace{12pt}
+  
+     \begin{center}
+     	%\includegraphics[width=\linewidth/6]{logoUFPE.jpg}%LOGOTIPO DA INSTITUICAO
+     	\vspace{0pt}
+     	
+     	\universidade
+     	\par
+     	\centro
+     	\par
+     	\departamento
+     	\par
+     	\curso
+     	\par
+     	\vspace{08pt}
+     	\text{Prova 1 - Algebra Linear}\\
+     	\text{Prof. Fernando R. L. Contreras}	
+     \end{center}
+     
+     \begin{flushleft}
+     	\textbf{Aluno(a)}:
+     \end{flushleft}
+ 
+ \begin{itemize}
+ 	\item[1.]  Seja $T:P_{3}\longrightarrow P_{3} $ tal que $T(f)=f''$ para todo $f\in P_{3}$. Mostre que $T$ é transformação linear e determine uma base para $Ker(T)$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[2.] Sejam $\alpha=\left\lbrace (1,-1),(0,2) \right\rbrace $ e $\beta=\left\lbrace (1,0,-1),(0,1,2), (1,2,0)\right\rbrace $ bases de $\mathbb{R}^{2} $ e $\mathbb{R}^{3}$ respectivamente e\\ $[T]^{\alpha_{\beta}}=\begin{bmatrix}
+ 	1       & 0 \\
+ 	1       & 1 \\
+ 	0       & -1
+ 	\end{bmatrix}$. (a) Ache $T$ e (b) Se $S(x,y)=(2y,x-y,x)$, ache $[S]^{\alpha}_{\beta}$
+ \end{itemize}
+ \begin{itemize}
+ 	\item [3.] Dados os subespaços de $\mathbb{R}^{4}$, $S_{1}=\left\lbrace (x_{1},x_{2},x_{3},x_{4}) / x_{1}+x_{2}-x_{3}+x_{4}=0 \right\rbrace $ e\\ $S_{2}=\left\lbrace (x_{1},x_{2},x_{3},x_{4}) / x_{1}-x_{2}-x_{3}-x_{4}=0 \right\rbrace $. Obter a dimensão de $S_{1}+S_{2}$.
+ \end{itemize}
+ \begin{itemize}
+ 	\item[4.]. No conjunto $V$ definamos a "\textit{adição}" como fazemos habitualmente no $ \mathbb{R}^{2}$ e multiplicação por escalares assim: $\alpha (x,y)=(ax,0)$. É então $V$ um espaço vetorial sobre $ \mathbb{R}$? Por que ?
+\end{itemize}
+\begin{itemize}
+	\item[Opcional]. Defina a Soma Direta de dois subespaços vetoriais do espaço vetorial $V$.
+	
+\end{itemize}	
+\flushbottom
+\flushright
+
+\end{document}
+
