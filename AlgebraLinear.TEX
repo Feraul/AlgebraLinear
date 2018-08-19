@@ -555,6 +555,8 @@ Calcule $\textbf{A}\textbf{B}-\textbf{I}$.
 
 \end{itemize}
 \newpage
+%####################################################################################################
+%####################################################################################################
 \section{Sistemas lineares}
 
 \begin{df}
@@ -562,7 +564,7 @@ Dados os números reais $\alpha_{1},\alpha_{2},...,\alpha_{n},\beta $ $(n\geqsla
 \begin{equation*}
 \alpha_{1}x_{1}+\alpha_{2}x_{2}+...+\alpha_{n}x_{n}=\beta
 \end{equation*} 
-onde os $x_{i}$ são variáveis em $\mathbb{R}$, damos o nome de \textbf{equação linear} sobre $\mathbb{R}$ nas incógnitas $x_{1},x_{2},...x_{n}$.\\
+damos o nome de \textbf{equação linear} sobre $\mathbb{R}$ nas incógnitas $x_{1},x_{2},...x_{n}$, onde cada $x_{i}$ são variáveis em $\mathbb{R}$\\
 
 \end{df}
 
@@ -588,6 +590,8 @@ Uma \textbf{\textit{solução}} dessa equação é uma sequência de $n$ número
 	 
 \end{df}
 Uma solução do sistema acima é uma \textit{n}-upla $(b_{1},...,b_{n})$ de números reais que é solução de cada uma das equações do sistema.
+
+Se, num sistema, tivermos $\beta_{1},\beta_{2},...,\beta_{m}$, o sistema será homogêneo. A n-upla $(0,0,...,0)$ é solução do sistema neste caso e por isso todo sistema homogêneo é compatível, de acordo com a definição anterior. A solução $(0,0,...,0)$ chama-se solução trivial do sistema homogêneo. 
 \begin{ex}
 	Dado o sistema:\\
 	\begin{equation*}
@@ -598,10 +602,9 @@ Uma solução do sistema acima é uma \textit{n}-upla $(b_{1},...,b_{n})$ de nú
 	\end{equation*}
 \end{ex}
 Uma solução do sistema é $(0,3,4)$. Notemos que essa solução não é única: a terna $(\frac{8}{5},\frac{11}{5},0)$ também é solução do sistema.
-Se, num sistema, tivermos $\beta_{1},\beta_{2},...,\beta_{m}$, o sistema será homogêneo. A n-upla $(0,0,...,0)$ é solução do sistema neste caso e por isso todo sistema homogêneo é compatível, de acordo com a definição anterior. A solução $(0,0,...,0)$ chama-se solução trivial do sistema homogêneo. 
 
 \begin{df}
-	Dizemos que um sistema $S$ linear é \textbf{incompatível} se $S$ não admite nenhuma solução. Um sistema linear que admite uma única solução é chamado \textbf{compatível determinado}. Se o sistema linear $S$ admitir mais do que uma solução então ele recebe o nome de \textbf{compatível indeterminado}. 	
+	Dizemos que um sistema $S$ linear é \underline{\textbf{incompatível}} se $S$ não admite nenhuma solução. Um sistema linear que admite uma única solução é chamado \underline{\textbf{compatível determinado}}. Se o sistema linear $S$ admitir mais do que uma solução então ele recebe o nome de \underline{\textbf{compatível indeterminado}}. 	
 \end{df}
 \begin{ex}
 	O sistema:\\
@@ -633,16 +636,31 @@ Não possui nenhuma solução (fazer o gráfico).
 	\end{equation*} 
 \end{ex}
 Possui infinitas soluções (fazer o gráfico).
+
+Dadas as retas:
+
+\begin{equation*}
+\begin{cases}
+r: ax+by+c=0 \\
+s: a_{1}x+b_{1}y+c_{1}=0
+\end{cases}
+\end{equation*}
+Temos os seguintes casos:\\
+a) se $\frac{a}{a_{1}}=\frac{b}{b_{1}}=\frac{c}{c_{1}}$, então as retas $r$ e $s$ são coincidentes
+
+b) se $\frac{a}{a_{1}}=\frac{b}{b_{1}}\neq\frac{c}{c_{1}}$, então as retas $r$ e $s$ são paralelas
+
+b) se $\frac{a}{a_{1}}\neq\frac{b}{b_{1}}$, então as retas $r$ e $s$ são concorrentes
 \newpage
 \section{Sistemas equivalentes}
 Seja $S$ um sistema linear de $m$ equações com $n$ incógnitas. Interessa-nos considerar os sistemas que podem ser obtidos de $S$ de uma das seguintes maneiras:
 
 \begin{itemize}
 	\item[I.] \textit{Permutar} duas das equações de $S$. É evidente que se $S_{1}$ indicar o sistema assim obtido, então toda solução de $S_{1}$ é solução de $S$ e vice-versa.
-	\item[II.] \textit{Multiplicar} uma das equações $S$ por um número real $\lambda \neq 0$. Indicando por $S_{1}$ o sistema assim obtido mostremos que toda solução de $S_{1}$ é solução de $S$ e vice-versa.
+	\item[II.] \textit{Multiplicar} uma das equações $S$ por um número real $\lambda \neq 0$. Indicamos por $S_{1}$ o sistema assim obtido, então toda solução de $S_{1}$ é solução de $S$ e vice-versa.
 	\item [III.] \textit{Somar} a uma das equações do sistema uma outra equação desse sistema multiplicada por um número real, ou seja
 	 \begin{equation*}
-	 \begin{cases}
+	 S_{1}:\begin{cases}
 	 \alpha_{11}x_{1}+...+\alpha_{1n}x_{n}=\beta_{1}\\
 	 ....................................\\
 	 \alpha_{i1}x_{1}+...+\alpha_{in}x_{n}=\beta_{i}\\
@@ -652,9 +670,9 @@ Seja $S$ um sistema linear de $m$ equações com $n$ incógnitas. Interessa-nos 
 	 \end{cases}
 	 \end{equation*}   
 \end{itemize}
-Assim obtido e o sistema $S$ ou são ambos incompatíveis ou admitem ambos as mesmas soluções.
+O sistema obtido $S_{1}$ e o sistema $S$ ou são ambos incompatíveis ou admitem ambos as mesmas soluções.
 \begin{df}
-	Dado um sistema linear $S$, qualquer das modificações explicadas acima em $(I)$, $(II)$ e $(III)$ que se faça com esse sistema recebe o nome de \underline{operação elementar com $S$}. Se um sistema linear $S_{1}$ foi obtido de um sistema linear $S$ através de um número finito de operações elementares, dizemos que $S_{1}$ é equivalente a $S$. Notação $S_{1}\equiv S$	
+	Dado um sistema linear $S$, qualquer das modificações explicadas acima em $(I)$, $(II)$ e $(III)$ que se faça com esse sistema $S$ recebe o nome de \underline{operação elementar com $S$}. Se um sistema linear $S_{1}$ foi obtido de um sistema linear $S$ através de um número finito de operações elementares, dizemos que $S_{1}$ é equivalente a $S$ e denotaremos por $S_{1}\equiv S$.	
 \end{df}
 \subsection*{Propriedades}
 \begin{itemize}
@@ -662,7 +680,7 @@ Assim obtido e o sistema $S$ ou são ambos incompatíveis ou admitem ambos as me
 	\item[(b).] $S_{1} \equiv S$, então $S \equiv S_{1}$ (simétrica)
 	\item[(c).] $S_{1} \equiv S$ e $S \equiv S_{2}$ , então $S_{1} \equiv S_{2}$ (transitiva)
 \end{itemize}
-Desta forma criamos um mecanismo extremamente util para a procura de soluções de um sistema linear $S$. Procuramos sempre encontrar um sistema linear equivalente a $S$ e que seja \underline{mais simples}.
+Desta forma criamos um mecanismo extremamente util para a procura de soluções de um sistema linear $S$. Então, procuramos sempre encontrar um sistema linear equivalente a $S$ e que seja \underline{mais simples}.
 \begin{ex}
 	Analise o seguinte sistema:\\
 	\begin{equation*}
@@ -707,7 +725,7 @@ Consideramos um sistema linear de $m$ equações com $n$ incógnitas que tem o s
 \end{cases}
 \end{equation*} 
 onde $\alpha_{1r_{1}}\neq 0$, $\alpha_{2r_{2}}\neq 0$, ..., $\alpha_{kr_{k}}\neq 0$ e cada $r_{i}\geq 1$.\\
-Se tivermos $1\leq r_{1}<r_{2}<...<r_{k}\leq n$ diremos que $S$ é um sistema linear escolado. 
+Se tivermos $1\leq r_{1}<r_{2}<...<r_{k}\leq n$ diremos que $S$ é um sistema linear escalonado. 
 \begin{ex}
 	Exemplo de sistema escalonado:\\
 	\begin{equation*}
@@ -821,6 +839,7 @@ Observação. \\
 \end{ex}
 É inversível e determinar $A^{-1}$, caso esta matriz exista.
 \section*{Sistemas de Cramer}
+A regra do Cramer somente é aplicado a sistemas cujo, número de incógnitas é igual ao número de equações do sistema.
 Seja:\\
 \begin{equation*}
 S:\begin{cases}
@@ -860,7 +879,7 @@ Um sistema de Cramer é um sistema linear de $n$ equações com $n$ incógnitas 
 \begin{equation*}
 AX=B \Leftrightarrow A^{-1}(AX)=A^{-1}B \Leftrightarrow X=A^{-1}B
 \end{equation*}
-Então esse sistema é compatível determinado e sua única solução é dada por $A^{-1}B$. Em particular um sistema quadrado e homogêneo cuja matriz dos coeficientes é inversível só admite a solução trivial.
+Então, esse sistema é compatível determinado e sua única solução é dada por $A^{-1}B$. Em particular um sistema quadrado e homogêneo cuja matriz dos coeficientes é inversível só admite a solução trivial.
 
 \begin{ex}
 	Verificar se a matriz:\\

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.9)  19 AUG 2018 09:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.9)  19 AUG 2018 10:44
 entering extended mode
 **./AlgebraLinear.tex
 (AlgebraLinear.tex
@@ -1113,135 +1113,135 @@ Underfull \hbox (badness 10000) in paragraph at lines 488--489
  []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--566
+Underfull \hbox (badness 10000) in paragraph at lines 566--568
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--580
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--593
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 607--608
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 610--611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 667--668
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 712--713
+Underfull \hbox (badness 10000) in paragraph at lines 730--731
 
  []
 
 
-Overfull \hbox (4.32353pt too wide) detected at line 768
+Overfull \hbox (4.32353pt too wide) detected at line 786
 \OMS/ztmcm/m/n/12  []  []  []  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 783--784
+Underfull \hbox (badness 10000) in paragraph at lines 801--802
 
  []
 
 [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 797--798
+Underfull \hbox (badness 10000) in paragraph at lines 815--816
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--803
+Underfull \hbox (badness 10000) in paragraph at lines 820--821
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--814
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 824--825
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--854
+Underfull \hbox (badness 10000) in paragraph at lines 842--844
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 856--858
+Underfull \hbox (badness 10000) in paragraph at lines 871--873
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 859--860
+Underfull \hbox (badness 10000) in paragraph at lines 875--877
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 878--879
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 885--886
 
  []
 
 [15]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 916.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 935.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 916.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 935.
 
-Underfull \hbox (badness 10000) in paragraph at lines 945--946
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 968--969
+Underfull \hbox (badness 10000) in paragraph at lines 987--988
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 972--974
+Underfull \hbox (badness 10000) in paragraph at lines 991--993
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1049
 
  []
 
 [18] [19] [20] [21]
-Overfull \hbox (12.32028pt too wide) in paragraph at lines 1202--1203
+Overfull \hbox (12.32028pt too wide) in paragraph at lines 1221--1222
 [][]\T1/ptm/b/n/12 Exemplo 45. []\T1/ptm/m/it/12 (-20) Cal-cule as co-or-de-nad
 as do ve-tor $\OT1/ztmcm/m/n/12 (4\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 3)$ \T
 1/ptm/m/it/12 (-20) nas bases $\OML/ztmcm/m/it/12  \OT1/ztmcm/m/n/12 = \OMS/zt
@@ -1254,31 +1254,31 @@ m/m/n/12 1)\OMS/ztmcm/m/n/12 g$\T1/ptm/m/it/12 (-20) .
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1244--1245
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1246--1250
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1269
 
  []
 
 
 AED: lastpage setting LastPage
 [23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1259.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1259.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1278.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1278.
  (AlgebraLinear.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1259.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1259.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1278.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1278.
 
 Package rerunfilecheck Info: File `AlgebraLinear.out' has not changed.
 (rerunfilecheck)             Checksum: 5E3257EDFEA3E3E2FFB0BB99428917AA;957.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1259.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1278.
  ) 
 Here is how much of TeX's memory you used:
  10708 strings out of 493312
- 159866 string characters out of 3138891
+ 159872 string characters out of 3138891
  284665 words of memory out of 3000000
  13738 multiletter control sequences out of 15000+200000
  82010 words of font info for 213 fonts, out of 3000000 for 9000
@@ -1295,7 +1295,7 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on AlgebraLinear.pdf (23 pages, 198352 bytes).
+Output written on AlgebraLinear.pdf (23 pages, 199323 bytes).
 PDF statistics:
  323 PDF objects out of 1000 (max. 8388607)
  130 named destinations out of 1000 (max. 500000)
