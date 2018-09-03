@@ -1042,14 +1042,8 @@ Vamos comentar, agora, uma das características mais importantes de um espaço v
 \begin{df}
 Sejam $V$ um espaço vetorial real e sejam $v_{1},...,v_{n}\in V$ e $\alpha_{1},...,\alpha_{n}\in \mathbb{R}$. Então, o vetor $v=\alpha_{1}v_{1}+...+\alpha_{n}v_{n}$ é um elemento de $V$ ao que chamaremos combinação linear de $v_{1},...,v_{n}$.
 \end{df}
-\subsubsection{Subespaços gerados}
-Uma vez fixados os vetores $v_{1},...,v_{n}\in V$, o conjunto $W$ de todos os vetores de $V$ que são combinação linear destes, é chamado de subespaço gerado por $v_{1},...,v_{n}$ e usamos a notação\\
-
-$W=\left[ v_{1},...,v_{n}\right]=\left\lbrace v\in V:v=\alpha_{1}v_{1}+...+\alpha_{n}v_{n}, \alpha_{i}\in \mathbb{R}, \leqslant i\leqslant n  \right\rbrace $.
-
-Uma outra caracterização de subespaço gerado é a seguinte: $W=\left[ v_{1},...,v_{n}\right]$ é o menor subespaço de $V$ que contem o conjunto de vetores $\{v_{1},...,v_{n}\}$, no sentido de que qualquer outro subespaço $W^{'}$ de $V$ que contenha $\{v_{1},...,v_{n}\}$ satisfará $W\subset W^{'}$. (TAREFA-PROVE!!!)
 \begin{ex}
-	No espaço vetorial $P_{2}$ dos polinômios de grau $\leqslant 2$, o polinômio $v=7x^{2}+11x-26$ e uma combinação linear dos polinômios $v_{1}=5x^{2}-3x+2$ e $v_{2}=-2x^{2}+5x-8$?.
+	No espaço vetorial $P_{2}$ dos polinômios de grau $\leqslant 2$, o polinômio $v=7x^{2}+11x-26$ é uma combinação linear dos polinômios $v_{1}=5x^{2}-3x+2$ e $v_{2}=-2x^{2}+5x-8$?.
 \end{ex}
 Seja $v=\alpha v_{1}+\beta v_{2}$, devemos calcular $\alpha$ e $\beta$, caso eles existam e sejam números reais, então podemos conclui que $v$ pode-se escrever como combinação linear de $v_{1}$ e $v_{2}$.
 
@@ -1079,6 +1073,13 @@ a_{1}+2a_{2}=-4   \\
 \end{equation*}
 Cuja solução do sistema de equações lineares anterior é $a_{1}=2$ e $a_{2}=-3$. Portanto, $v=2v_{1}-3v_{2}$.
 
+\subsubsection{Subespaços gerados}
+Uma vez fixados os vetores $v_{1},...,v_{n}\in V$, o conjunto $W$ de todos os vetores de $V$ que são combinação linear destes, é chamado de subespaço gerado por $v_{1},...,v_{n}$ e usamos a notação\\
+
+$W=\left[ v_{1},...,v_{n}\right]=\left\lbrace v\in V:v=\alpha_{1}v_{1}+...+\alpha_{n}v_{n}, \alpha_{i}\in \mathbb{R}, \leqslant i\leqslant n  \right\rbrace $.
+
+Uma outra caracterização de subespaço gerado é a seguinte: $W=\left[ v_{1},...,v_{n}\right]$ é o menor subespaço de $V$ que contem o conjunto de vetores $\{v_{1},...,v_{n}\}$, no sentido de que qualquer outro subespaço $W^{'}$ de $V$ que contenha $\{v_{1},...,v_{n}\}$ satisfará $W\subset W^{'}$. (TAREFA-PROVE!!!)
+
 \begin{ex}
 Mostre que o subconjunto $W=\left\lbrace (x,y,0)\in \mathbb{R}^{3}: x,y\in \mathbb{R}\right\rbrace $ é gerado pelo conjunto $\left\lbrace (1,0,0), (0,1,0) \right\rbrace $ do $\mathbb{R}^{3}$.
 \end{ex}
@@ -1093,7 +1094,7 @@ y=\beta
 \begin{ex}
 	Seja $V=\mathbb{R}^{3}$. Determine o subespaço gerado pelo vetor $v_{1}=(1,2,3)$.
 \end{ex}
-Temos $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: (x,y,z)=\alpha (1,2,3), \alpha \in \mathbb{R} \right\rbrace $ logo $(x,y,z)=\alpha (1,2,3)$, então $x=\alpha$, $y=2\alpha$ e $z=3\alpha$. Assim $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: y=2x \text{e} z=3x \right\rbrace $. onde $[v_{1}]$ é subespaço gerado de $v_{1}\in \mathbb{R}^{3}$ (particularmente é uma reta que passa pela origem).
+Temos $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: (x,y,z)=\alpha (1,2,3), \alpha \in \mathbb{R} \right\rbrace $ logo $(x,y,z)=\alpha (1,2,3)$, então $x=\alpha$, $y=2\alpha$ e $z=3\alpha$. Assim $[v_{1}]=\left\lbrace (x,y,z)\in \mathbb{R}^{3}: y=2x \quad \text{e}\quad z=3x \right\rbrace $. onde $[v_{1}]$ é subespaço gerado de $v_{1}\in \mathbb{R}^{3}$ (particularmente é uma reta que passa pela origem).
 
 O subespaço gerado por um vetor $v_{1}\in \mathbb{R}^{3}$, $v_{1}\neq 0$ é uma reta que passa pela origem. Se a esse vetor acrescentamos $v_{2},v_{3},...$ todos colineares entre si, o subespaço gerado por $v_{2}, v_{3},...$ vetores continuará sendo a mesma reta: $[v_{1}]=[v_{1},v_{2}]=[v_{1},v_{2},v_{3}]=...$, por exemplo o vetor $(7,14,21)$ posso escrever como combinação linear de $(1,2,3)$ e $(2,4,6)$, ou seja, $(7,14,21)=1(1,2,3)+3(2,4,6)$.
 
